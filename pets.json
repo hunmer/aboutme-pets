@@ -4,10 +4,18 @@
     {
       "id": "dsh-pet",
       "name": "蓝毛小女仆",
-      "description": "内置 WebP 精灵图桌宠，122 个透明动作，可按需下载扩展动作。",
+      "description": "内置 WebP 精灵图桌宠，101 个透明动作，可按需下载扩展动作。",
       "cover": "pets/dsh/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/dsh/manifest.json",
       "actions": "pets/dsh/actions.json"
+    },
+    {
+      "id": "dsh1-pet",
+      "name": "蓝毛小女仆·新动作包",
+      "description": "2026-11 第二批动作，166 个透明 WebP 精灵图，9 个分类（日常起居、吃喝、运动健身、才艺表演、手工节日、工作职业、娱乐休闲、情绪反应、换装造型）。",
+      "cover": "pets/dsh1/spritesheet/站着晃神打瞌睡.webp",
+      "manifest": "pets/dsh1/manifest.json",
+      "actions": "pets/dsh1/actions.json"
     }
   ]
 }

@@ -1,0 +1,1 @@
+"""Transparent Video Maker package."""

@@ -1,0 +1,10 @@
+来源: 2026-11 第二批动作（166 个），源 WebM 由包维护者提供，逐项转换为透明 WebP。
+上游素材归属: https://github.com/PC2005-cloud/dsh-pet（固定提交 b78e3fcf92ac78cee569aed7cc27eeb2a8d51757）
+代码: MIT，见 LICENSE-code.txt / LICENSE-assets.txt。
+素材: 禁止商用；二创在公开渠道须署名上述上游仓库。
+派生资源: pets/dsh1/spritesheet/ 下 166 张透明 WebP（15 秒源 180 帧、30 秒源 360 帧，均为 640x360 / 12fps / 8 列）及同名动作 JSON；
+          audio/ 下 2 条 m4a（工作加班、熬夜刷手机）沿用上一批同动作音轨。
+转换规格: 单张 WebP 默认上限 1,500,000 字节，30 秒动作经 maxImageBytesOverrides 放宽到 3,000,000 字节。
+编码: cwebp 有损 RGB 及 Alpha 量化，保留透明背景；逐张质量及字节数见同名 JSON。
+转换脚本: convert_video_pet_spritesheet.py（本仓库根目录，Python 3 版；PowerShell 原版为 .ps1）。
+派生 WebP 沿用上述素材限制，转换不授予额外授权。

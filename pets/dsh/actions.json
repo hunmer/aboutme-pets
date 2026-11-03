@@ -51,22 +51,6 @@
       }
     },
     {
-      "id": "中国功夫",
-      "name": "中国功夫",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/中国功夫.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
       "id": "中秋赏月吃月饼",
       "name": "中秋赏月吃月饼",
       "category": "时节",
@@ -255,22 +239,6 @@
         "columns": 8,
         "rows": 15,
         "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
-      "id": "刷牙",
-      "name": "刷牙",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/刷牙.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
         "fps": 12
       }
     },
@@ -787,38 +755,6 @@
       }
     },
     {
-      "id": "唱歌-清唱",
-      "name": "唱歌-清唱",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/唱歌-清唱.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
-      "id": "堆雪人",
-      "name": "堆雪人",
-      "category": "时节",
-      "sources": {
-        "webp": "spritesheet/堆雪人.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 15,
-        "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
       "id": "大口吃零食",
       "name": "大口吃零食",
       "category": "吃什么",
@@ -881,23 +817,6 @@
         "frameCount": 120,
         "fps": 12
       }
-    },
-    {
-      "id": "工作加班",
-      "name": "工作加班",
-      "category": "工作状态",
-      "sources": {
-        "webp": "spritesheet/工作加班.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 45,
-        "frameCount": 360,
-        "fps": 12
-      },
-      "audio": "audio/工作加班.m4a"
     },
     {
       "id": "工作状态-原地踱步张望",
@@ -1044,22 +963,6 @@
       }
     },
     {
-      "id": "打滚-原地",
-      "name": "打滚-原地",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/打滚-原地.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
       "id": "打瞌睡被惊醒",
       "name": "打瞌睡被惊醒",
       "category": "小动作",
@@ -1092,38 +995,6 @@
       }
     },
     {
-      "id": "拆礼物",
-      "name": "拆礼物",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/拆礼物.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 15,
-        "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
-      "id": "换装侦探服思考",
-      "name": "换装侦探服思考",
-      "category": "工作状态",
-      "sources": {
-        "webp": "spritesheet/换装侦探服思考.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
       "id": "插茱萸赏菊",
       "name": "插茱萸赏菊",
       "category": "时节",
@@ -1152,22 +1023,6 @@
         "columns": 8,
         "rows": 15,
         "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
-      "id": "摘花送镜头",
-      "name": "摘花送镜头",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/摘花送镜头.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
         "fps": 12
       }
     },
@@ -1252,22 +1107,6 @@
       }
     },
     {
-      "id": "放风筝",
-      "name": "放风筝",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/放风筝.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 15,
-        "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
       "id": "整体换装试色",
       "name": "整体换装试色",
       "category": "小动作",
@@ -1312,22 +1151,6 @@
         "columns": 8,
         "rows": 15,
         "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
-      "id": "沙发打瞌睡",
-      "name": "沙发打瞌睡",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/沙发打瞌睡.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
         "fps": 12
       }
     },
@@ -1458,23 +1281,6 @@
         "frameCount": 120,
         "fps": 12
       }
-    },
-    {
-      "id": "熬夜刷手机",
-      "name": "熬夜刷手机",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/熬夜刷手机.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 45,
-        "frameCount": 360,
-        "fps": 12
-      },
-      "audio": "audio/熬夜刷手机.m4a"
     },
     {
       "id": "玩水枪",
@@ -1789,70 +1595,6 @@
       }
     },
     {
-      "id": "跳绳-减肥",
-      "name": "跳绳-减肥",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/跳绳-减肥.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 45,
-        "frameCount": 360,
-        "fps": 12
-      }
-    },
-    {
-      "id": "踢毽子",
-      "name": "踢毽子",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/踢毽子.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 15,
-        "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
-      "id": "蹦迪-戴墨镜",
-      "name": "蹦迪-戴墨镜",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/蹦迪-戴墨镜.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 45,
-        "frameCount": 360,
-        "fps": 12
-      }
-    },
-    {
-      "id": "转呼啦圈",
-      "name": "转呼啦圈",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/转呼啦圈.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
       "id": "轻快摇摆舞",
       "name": "轻快摇摆舞",
       "category": "玩耍",
@@ -1874,86 +1616,6 @@
       "category": "小动作",
       "sources": {
         "webp": "spritesheet/轻快记录.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 15,
-        "frameCount": 120,
-        "fps": 12
-      }
-    },
-    {
-      "id": "逗狗",
-      "name": "逗狗",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/逗狗.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
-      "id": "逗猫",
-      "name": "逗猫",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/逗猫.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
-      "id": "逗蝴蝶",
-      "name": "逗蝴蝶",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/逗蝴蝶.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
-      "id": "风扇前啊啊叫",
-      "name": "风扇前啊啊叫",
-      "category": "小动作",
-      "sources": {
-        "webp": "spritesheet/风扇前啊啊叫.webp"
-      },
-      "spritesheet": {
-        "frameWidth": 640,
-        "frameHeight": 360,
-        "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
-        "fps": 12
-      }
-    },
-    {
-      "id": "骑木马",
-      "name": "骑木马",
-      "category": "玩耍",
-      "sources": {
-        "webp": "spritesheet/骑木马.webp"
       },
       "spritesheet": {
         "frameWidth": 640,

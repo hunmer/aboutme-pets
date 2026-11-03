@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "pets": [
+    {
+      "id": "dsh-pet",
+      "name": "蓝毛小女仆",
+      "description": "内置 WebP 精灵图桌宠，122 个透明动作，可按需下载扩展动作。",
+      "cover": "pets/dsh/spritesheet/待机呼吸休闲.webp",
+      "manifest": "pets/dsh/manifest.json",
+      "actions": "pets/dsh/actions.json"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+来源: https://github.com/PC2005-cloud/dsh-pet
+固定提交: b78e3fcf92ac78cee569aed7cc27eeb2a8d51757
+代码: MIT，见 LICENSE-code.txt / LICENSE-assets.txt（上游两份 LICENSE 均为代码 MIT）。
+素材: 禁止商用；二创在公开渠道须署名上述仓库，见原样保留的 SOURCE-upstream.txt。
+WebM 来源: 固定提交 dsh-pet/assets/webm/，106 项，导入时逐项 Git blob SHA1 验证；本地保留 54,351,332 字节作为转换输入，已 gitignore，不属于 Flutter 打包资源。
+派生资源: 使用 FFmpeg libvpx-vp9 保留 Alpha，生成 106 张独立有损透明 WebP（每张小于 1,000,000 字节）及 106 份 PascalCase 动作 JSON。
+转换规格: 保留源尺寸，每帧 640x360、12 fps、8 列，行数按真实 fps 过滤输出帧数向上取整；105 个动作 120 帧，工作状态-垂头叹气冒汗 59 帧。
+编码: cwebp 有损 RGB 及 Alpha 量化，保留透明背景；逐张质量及字节数见同名 JSON。
+转换脚本: scripts/convert_video_pet_spritesheet.ps1，要求 PowerShell 7；默认 E:/ffmpeg/ffmpeg.exe 及同目录 ffprobe.exe。
+校验: checksums.json 包含保留的 106 个 WebM、106 个 WebP、106 个动作 JSON 的 SHA256 与字节数，共 318 项。
+MOV: 冗余的 106 个 MOV 已在确认 Git 未跟踪且均有同名 WebM 后删除；此包不再包含、引用或校验 MOV，也无需下载 MOV 发布包来重新生成。
+派生 WebP 沿用上述素材限制，转换不授予额外授权。

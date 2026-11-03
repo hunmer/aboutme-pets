@@ -1,0 +1,23 @@
+{
+  "Source": "蝴蝶蜜蜂环绕头顶开花.webm",
+  "FrameWidth": 640,
+  "FrameHeight": 360,
+  "Columns": 8,
+  "Rows": 15,
+  "FrameCount": 120,
+  "SampleFps": 12,
+  "SourceDurationSeconds": 10.042,
+  "SourceFps": 24.0,
+  "CanvasWidth": 5120,
+  "CanvasHeight": 5400,
+  "SourceVideoBytes": 852828,
+  "Alpha": "RGBA",
+  "ImageFormat": "webp",
+  "Lossless": false,
+  "EncodingQuality": 29,
+  "AlphaQuality": 1,
+  "Encoder": "cwebp -m 4 -mt",
+  "EncodedBytes": 989522,
+  "MaxImageBytes": 1000000,
+  "License": "Non-commercial; attribution required. See NOTICE.txt and SOURCE-upstream.txt."
+}

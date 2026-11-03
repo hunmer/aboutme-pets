@@ -480,8 +480,11 @@ def _process_video(src, out, a, quiet, dry, tag):
                 say(f"    sampled background colour: {color}", quiet)
             color = normalize_color(color)
             vf = f"chromakey={color}:{round(a.similarity, 3)}:{round(a.blend, 3)}"
+            if a.despill:
+                vf += f",despill=type=green:mix={a.despill:g}"
             say(f"\n▶ 2/3  chroma key  ({color}, similarity "
-                f"{a.similarity:g}, blend {a.blend:g})", quiet)
+                f"{a.similarity:g}, blend {a.blend:g}"
+                f"{f', despill {a.despill:g}' if a.despill else ''})", quiet)
             if not dry:
                 os.makedirs(transp, exist_ok=True)
             ok = run_ffmpeg(["ffmpeg", "-y",
@@ -530,7 +533,7 @@ def _process_video(src, out, a, quiet, dry, tag):
             for pass_no in (1, 2):
                 encode(encode_cmd(transp, _num(fps), a.crf, fmt, out,
                                   bitrate=bitrate, pass_no=pass_no,
-                                  passlog=log),
+                                  passlog=log, speed=a.speed),
                        total=total, unit="f", label=f"encode {fmt} p{pass_no}",
                        quiet=quiet, dry_run=dry)
             if not dry:
@@ -666,6 +669,8 @@ def cmd_video(a):
     _check_common(a)
     _check_range("--similarity", a.similarity, 0.0, 1.0)
     _check_range("--blend", a.blend, 0.0, 1.0)
+    _check_range("--despill", a.despill, 0.0, 1.0)
+    _check_range("--speed", a.speed, 0, 8)
     if getattr(a, "jobs", 1) < 1:
         raise CliError(f"--jobs must be at least 1 (got {a.jobs})")
     if a.target_size:
@@ -771,6 +776,8 @@ def build_parser():
                    help="chroma similarity 0-1 (default 0.10)")
     v.add_argument("--blend", type=float, default=0.05,
                    help="chroma edge blend 0-1 (default 0.05)")
+    v.add_argument("--despill", type=float, default=0.5,
+                   help="remove green spill from edges, 0 disables (default 0.5)")
     v.add_argument("-m", "--model", default="u2net",
                    help="rembg model for --method ai (default u2net)")
     v.add_argument("--format", choices=("webm", "mov"), default="webm",
@@ -782,6 +789,9 @@ def build_parser():
     v.add_argument("--target-size", metavar="SIZE",
                    help="aim for this file size, e.g. 1.5M (webm only, "
                         "two-pass; re-encodes once if it overshoots)")
+    v.add_argument("--speed", type=int, metavar="0-8",
+                   help="VP9 cpu-used for --target-size: higher = faster, "
+                        "slightly worse (default: encoder default)")
     v.add_argument("--jobs", type=int, default=1, metavar="N",
                    help="batch mode: convert N videos in parallel (default 1)")
     v.add_argument("--workdir", help="where the temp frame folders go")

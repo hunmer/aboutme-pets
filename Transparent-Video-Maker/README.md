@@ -129,6 +129,8 @@ Useful flags:
 | `--color auto` | read the backdrop colour from the clip instead of `#00ff00` |
 | `--target-size 1.5M` | aim for that file size (webm only, two-pass) |
 | `--jobs N` | batch mode: convert N videos in parallel (default 1) |
+| `--despill 0.5` | remove green spill from edges, `0` disables |
+| `--speed 4` | VP9 cpu-used for `--target-size` (higher = faster) |
 
 When `-i` is a **folder**, every video in it (`.mp4 .mov .m4v .webm .mkv .avi
 .wmv .flv .mpg .mpeg .ts .m2ts .mts .3gp`) is converted to
@@ -145,6 +147,11 @@ attempt still overshoots, the file is re-encoded once at a lower bitrate, so
 the cap is normally honoured; sizes slightly below the target are expected.
 `--jobs N` converts N files of a batch in parallel — each worker gets its own
 temp folders and progress lines are printed as files finish.
+
+`--despill` (on by default) runs ffmpeg's `despill` filter after the key so the
+green cast on anti-aliased edges disappears. AI-generated "green screens" also
+drift in colour from clip to clip (measured here: `#41BF45` … `#67B566`), which
+is why `--color auto` samples each clip instead of hard-coding one value.
 
 Notes:
 

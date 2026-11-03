@@ -4,7 +4,7 @@ import os
 
 def encode_cmd(frames_dir, fps, crf, fmt, outfile,
                pattern="frame%04d.png", extra=(), bitrate=None,
-               pass_no=None, passlog=None):
+               pass_no=None, passlog=None, speed=None):
     """Build the ffmpeg command that encodes a PNG sequence to a transparent video.
 
     `extra` is spliced in right after the binary name so callers can add global
@@ -22,6 +22,8 @@ def encode_cmd(frames_dir, fps, crf, fmt, outfile,
            "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", "-row-mt", "1"]
     if bitrate:
         cmd += ["-b:v", str(int(bitrate))]
+        if speed is not None:
+            cmd += ["-cpu-used", str(int(speed))]
         if pass_no:
             cmd += ["-pass", str(pass_no), "-passlogfile", str(passlog)]
     else:

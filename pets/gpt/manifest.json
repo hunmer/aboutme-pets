@@ -3107,7 +3107,7 @@
       "frameCountMethod": "FFmpeg fps filter -> null output -> final progress frame count",
       "imageFormat": "webp",
       "lossless": false,
-      "maxImageBytes": 1500000,
+      "maxImageBytes": 2500000,
       "qualityCeiling": 100,
       "qualitySearch": "Per-image RGB integer binary search; alpha quality 50/25/10/1 as needed; encoded bytes strictly below maxImageBytes",
       "encoder": "cwebp -m 4 -mt",

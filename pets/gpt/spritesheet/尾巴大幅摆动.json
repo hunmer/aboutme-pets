@@ -15,11 +15,11 @@
   "Alpha": "RGBA",
   "ImageFormat": "webp",
   "Lossless": false,
-  "EncodingQuality": 37,
-  "AlphaQuality": 25,
+  "EncodingQuality": 77,
+  "AlphaQuality": 50,
   "Encoder": "cwebp -m 4 -mt",
-  "EncodedBytes": 1488306,
-  "MaxImageBytes": 1500000,
+  "EncodedBytes": 2421094,
+  "MaxImageBytes": 2500000,
   "License": "Non-commercial; attribution required. See NOTICE.txt and SOURCE-upstream.txt.",
   "HasAudio": false
 }

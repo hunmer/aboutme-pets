@@ -340,6 +340,7 @@ class PipelineMixin:
                          args=(video, outdir), daemon=True).start()
 
     def _start_run(self):
+        self._save_settings()   # crash-safe: config used for this run is kept
         self.run_btn.config(state="disabled")
         self.stop_btn.config(state="normal")
         self.running = True

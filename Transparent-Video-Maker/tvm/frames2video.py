@@ -253,6 +253,7 @@ class FramesMixin:
         if not folder or not os.path.isdir(folder):
             messagebox.showerror("No folder", "Please select a folder of PNG frames.")
             return
+        self._save_settings()   # crash-safe: config used for this run is kept
         self.fv_run_btn.config(state="disabled")
         self.fv_stop_btn.config(state="normal")
         self.running = True

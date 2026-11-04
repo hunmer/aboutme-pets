@@ -10,12 +10,27 @@ from tkinter import ttk, filedialog, messagebox, colorchooser
 from .theme import *  # noqa: F401,F403
 from .tools import REMBG_EXE, clean_env, find_videos, output_path, plan_batch
 from .encode import encode_cmd
+from .settings import load_settings, save_settings
 from .preview import PreviewMixin
 from .pipeline import PipelineMixin
 from .frames2video import FramesMixin
 
 
 class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
+    # Form fields persisted to tvm_settings.json and restored on launch.
+    SETTINGS_KEYS = (
+        # Pipeline tab
+        "video_path", "output_dir", "batch_dir",
+        "batch_recursive", "batch_skip_existing", "batch_on_error",
+        "batch_workers",
+        "framerate", "crf", "out_format", "remove_mode",
+        "chroma_color", "chroma_sim", "chroma_blend",
+        "rembg_model", "keep_frames",
+        # Frames → Video tab
+        "fv_folder", "fv_output", "fv_fps", "fv_crf", "fv_format",
+        "fv_pattern",
+    )
+
     def __init__(self):
         super().__init__()
         self.title("Transparent Video Maker  v2")
@@ -80,6 +95,7 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
         self.remove_mode.trace_add("write", lambda *a: self._toggle_mode())
 
         self._build_ui()
+        self._restore_settings()   # recall the last session's form values
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
     # ── Header + tab bar ──────────────────────────────────────────────────
@@ -119,8 +135,10 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
                     self.remove_mode, self.rembg_model):
             var.trace_add("write", lambda *a: self._prev_settings_changed())
 
-        # Batch info line follows the batch settings (recursive / skip).
-        for var in (self.batch_recursive, self.batch_skip_existing):
+        # Batch info line follows the batch settings (recursive / skip),
+        # the chosen folder, and the output dir (skip-existing counts).
+        for var in (self.batch_recursive, self.batch_skip_existing,
+                    self.batch_dir, self.output_dir):
             var.trace_add("write", lambda *a: self._update_batch_info())
 
         # Worker threads never touch Tk: they push results here and the main
@@ -331,8 +349,38 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
         self._fv_done()
         self._wlog(self.pipe_log, "\n  ■  Stopped by user.\n", "warn")
 
+    # ── Settings persistence ──────────────────────────────────────────────
+    def _collect_settings(self):
+        """Snapshot every persisted form field into a plain dict."""
+        out = {}
+        for key in self.SETTINGS_KEYS:
+            try:
+                out[key] = getattr(self, key).get()
+            except Exception:
+                pass
+        return out
+
+    def _save_settings(self):
+        """Persist the current form; called on close and on every run."""
+        save_settings(self._collect_settings())
+
+    def _restore_settings(self):
+        """Re-apply the last session's values. Runs after _build_ui so all
+        traced callbacks (mode panels, batch info, preview) react normally.
+        Bad/missing entries are skipped, never fatal."""
+        data = load_settings()
+        for key in self.SETTINGS_KEYS:
+            val = data.get(key)
+            if val is None or val == "":
+                continue
+            try:
+                getattr(self, key).set(val)
+            except Exception:
+                pass
+
     # ── Shutdown ──────────────────────────────────────────────────────────
     def _on_close(self):
+        self._save_settings()
         for attr in ("_pv_timer", "_prev_probe_after"):
             t = getattr(self, attr, None)
             if t is not None:

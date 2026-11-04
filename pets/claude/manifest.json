@@ -1,0 +1,543 @@
+{
+  "schemaVersion": 1,
+  "id": "claude",
+  "name": "claude",
+  "canvasWidth": 640,
+  "canvasHeight": 360,
+  "animations": [
+    {
+      "id": "东张西望",
+      "name": "东张西望",
+      "category": "小动作",
+      "sources": {
+        "webp": "spritesheet/东张西望.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "书灵现世",
+      "name": "书灵现世",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/书灵现世.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "书页拍打节奏",
+      "name": "书页拍打节奏",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/书页拍打节奏.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "优雅裙摆舞",
+      "name": "优雅裙摆舞",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/优雅裙摆舞.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "偷吃零食被抓住",
+      "name": "偷吃零食被抓住",
+      "category": "吃喝",
+      "sources": {
+        "webp": "spritesheet/偷吃零食被抓住.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地专心玩魔方",
+      "name": "原地专心玩魔方",
+      "category": "玩耍",
+      "sources": {
+        "webp": "spritesheet/原地专心玩魔方.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地小憩沉眠",
+      "name": "原地小憩沉眠",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/原地小憩沉眠.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地左转奔跑",
+      "name": "原地左转奔跑",
+      "category": "移动",
+      "sources": {
+        "webp": "spritesheet/原地左转奔跑.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地敲击桌面互动",
+      "name": "原地敲击桌面互动",
+      "category": "小动作",
+      "sources": {
+        "webp": "spritesheet/原地敲击桌面互动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地漂浮踏步",
+      "name": "原地漂浮踏步",
+      "category": "移动",
+      "sources": {
+        "webp": "spritesheet/原地漂浮踏步.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地蹲下玩玩具汽车",
+      "name": "原地蹲下玩玩具汽车",
+      "category": "玩耍",
+      "sources": {
+        "webp": "spritesheet/原地蹲下玩玩具汽车.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "可爱宅舞",
+      "name": "可爱宅舞",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/可爱宅舞.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "吃白饭",
+      "name": "吃白饭",
+      "category": "吃喝",
+      "sources": {
+        "webp": "spritesheet/吃白饭.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "吹泡泡特效",
+      "name": "吹泡泡特效",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/吹泡泡特效.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "哈欠连天",
+      "name": "哈欠连天",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/哈欠连天.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "小提琴演奏",
+      "name": "小提琴演奏",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/小提琴演奏.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机呼吸休闲",
+      "name": "待机呼吸休闲",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机呼吸休闲.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "悠闲哼歌",
+      "name": "悠闲哼歌",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/悠闲哼歌.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "打瞌睡被惊醒",
+      "name": "打瞌睡被惊醒",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/打瞌睡被惊醒.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "整体换装试色",
+      "name": "整体换装试色",
+      "category": "换装造型",
+      "sources": {
+        "webp": "spritesheet/整体换装试色.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "淑女屈膝礼",
+      "name": "淑女屈膝礼",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/淑女屈膝礼.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "深度思考碎碎念v4",
+      "name": "深度思考碎碎念v4",
+      "category": "碎碎念",
+      "sources": {
+        "webp": "spritesheet/深度思考碎碎念v4.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "点击回应-傲娇生气",
+      "name": "点击回应-傲娇生气",
+      "category": "点击回应",
+      "sources": {
+        "webp": "spritesheet/点击回应-傲娇生气.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "点击回应-害羞惊讶",
+      "name": "点击回应-害羞惊讶",
+      "category": "点击回应",
+      "sources": {
+        "webp": "spritesheet/点击回应-害羞惊讶.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "点击回应-开心跃动",
+      "name": "点击回应-开心跃动",
+      "category": "点击回应",
+      "sources": {
+        "webp": "spritesheet/点击回应-开心跃动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "玩水枪",
+      "name": "玩水枪",
+      "category": "玩耍",
+      "sources": {
+        "webp": "spritesheet/玩水枪.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "玩游戏气急败坏",
+      "name": "玩游戏气急败坏",
+      "category": "玩耍",
+      "sources": {
+        "webp": "spritesheet/玩游戏气急败坏.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "螃蟹走路",
+      "name": "螃蟹走路",
+      "category": "移动",
+      "sources": {
+        "webp": "spritesheet/螃蟹走路.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "被吓一跳",
+      "name": "被吓一跳",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/被吓一跳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "被鼠标拖拽悬空反馈",
+      "name": "被鼠标拖拽悬空反馈",
+      "category": "拖拽",
+      "sources": {
+        "webp": "spritesheet/被鼠标拖拽悬空反馈.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "超大伸懒腰",
+      "name": "超大伸懒腰",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/超大伸懒腰.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "轻快摇摆舞",
+      "name": "轻快摇摆舞",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/轻快摇摆舞.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    }
+  ],
+  "metadata": {
+    "resourceFormat": "Per-action lossy WebP spritesheets with alpha; optional AAC m4a audio track",
+    "sourceVideos": "*.webm enumerated from --source-dir; filename without extension is the animation id",
+    "conversion": {
+      "frameWidth": 640,
+      "frameHeight": 360,
+      "fps": 12,
+      "columns": 8,
+      "rows": "ceil(actual fps-filtered frame count / columns)",
+      "frameCountMethod": "FFmpeg fps filter -> null output -> final progress frame count",
+      "imageFormat": "webp",
+      "lossless": false,
+      "maxImageBytes": 2000000,
+      "qualityCeiling": 100,
+      "qualitySearch": "Per-image RGB integer binary search; alpha quality 50/25/10/1 as needed; encoded bytes strictly below maxImageBytes",
+      "encoder": "cwebp -m 4 -mt",
+      "alphaHandling": "Source alpha preserved via RGBA tiles; alpha-free sources encode fully opaque and libwebp omits the alpha plane",
+      "audio": "First audio stream extracted to audio/<id>.m4a (AAC; stream copy when the source is already AAC, otherwise 192k re-encode); a silent source retains an existing m4a from an earlier export of the same performance (json AudioNote); no manifest audio reference only when neither exists",
+      "script": "convert_video_pet_spritesheet.py"
+    }
+  },
+  "idleAnimationId": "待机呼吸休闲"
+}

@@ -1,0 +1,3119 @@
+{
+  "schemaVersion": 1,
+  "id": "gpt",
+  "name": "gpt",
+  "idleAnimationId": "待机呼吸起伏",
+  "canvasWidth": 640,
+  "canvasHeight": 360,
+  "animations": [
+    {
+      "id": "OK手势",
+      "name": "OK手势",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/OK手势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "上勾拳",
+      "name": "上勾拳",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/上勾拳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "下劈手势",
+      "name": "下劈手势",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/下劈手势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "下蹲站起",
+      "name": "下蹲站起",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/下蹲站起.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "举重上挺",
+      "name": "举重上挺",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/举重上挺.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "仰卧起坐式起身",
+      "name": "仰卧起坐式起身",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/仰卧起坐式起身.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "低头害羞",
+      "name": "低头害羞",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/低头害羞.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "体前屈",
+      "name": "体前屈",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/体前屈.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "侧弯腰拉伸",
+      "name": "侧弯腰拉伸",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/侧弯腰拉伸.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "侧手翻定格",
+      "name": "侧手翻定格",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/侧手翻定格.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "侧踢",
+      "name": "侧踢",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/侧踢.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "侧身后仰闪避",
+      "name": "侧身后仰闪避",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/侧身后仰闪避.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "兔子竖耳",
+      "name": "兔子竖耳",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/兔子竖耳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "兴奋原地转",
+      "name": "兴奋原地转",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/兴奋原地转.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "写字哑剧",
+      "name": "写字哑剧",
+      "category": "工作职业",
+      "sources": {
+        "webp": "spritesheet/写字哑剧.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "击掌自拍",
+      "name": "击掌自拍",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/击掌自拍.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "单膝跪地",
+      "name": "单膝跪地",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/单膝跪地.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地小跳",
+      "name": "原地小跳",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/原地小跳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "原地踏步",
+      "name": "原地踏步",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/原地踏步.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "双手上举摇摆",
+      "name": "双手上举摇摆",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/双手上举摇摆.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "双手叉腰",
+      "name": "双手叉腰",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/双手叉腰.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "双手合十祈祷",
+      "name": "双手合十祈祷",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/双手合十祈祷.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "双手抚胸礼",
+      "name": "双手抚胸礼",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/双手抚胸礼.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "双手摊开无奈",
+      "name": "双手摊开无奈",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/双手摊开无奈.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "变身亮相",
+      "name": "变身亮相",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/变身亮相.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "召唤姿势",
+      "name": "召唤姿势",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/召唤姿势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "可爱三连姿势",
+      "name": "可爱三连姿势",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/可爱三连姿势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "后退一步再上前",
+      "name": "后退一步再上前",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/后退一步再上前.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "吐舌做鬼脸",
+      "name": "吐舌做鬼脸",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/吐舌做鬼脸.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "吹奏长笛",
+      "name": "吹奏长笛",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/吹奏长笛.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "呆毛情绪弹动",
+      "name": "呆毛情绪弹动",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/呆毛情绪弹动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "咬手指思索",
+      "name": "咬手指思索",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/咬手指思索.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "响指节奏",
+      "name": "响指节奏",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/响指节奏.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "哭泣",
+      "name": "哭泣",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/哭泣.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "回旋踢",
+      "name": "回旋踢",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/回旋踢.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "困倦揉眼",
+      "name": "困倦揉眼",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/困倦揉眼.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "坚决点头",
+      "name": "坚决点头",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/坚决点头.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "大笑",
+      "name": "大笑",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/大笑.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "头发无风自动",
+      "name": "头发无风自动",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/头发无风自动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "委屈撇嘴",
+      "name": "委屈撇嘴",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/委屈撇嘴.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "委屈赌气",
+      "name": "委屈赌气",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/委屈赌气.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "嫉妒斜睨",
+      "name": "嫉妒斜睨",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/嫉妒斜睨.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "害怕发抖",
+      "name": "害怕发抖",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/害怕发抖.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "害羞捂脸",
+      "name": "害羞捂脸",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/害羞捂脸.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "小兔蹦跳",
+      "name": "小兔蹦跳",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/小兔蹦跳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "小熊挥掌",
+      "name": "小熊挥掌",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/小熊挥掌.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "小鸟啄食",
+      "name": "小鸟啄食",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/小鸟啄食.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "小鸟展翅",
+      "name": "小鸟展翅",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/小鸟展翅.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "小鹿受惊",
+      "name": "小鹿受惊",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/小鹿受惊.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "尴尬赔笑",
+      "name": "尴尬赔笑",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/尴尬赔笑.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "尾巴共舞",
+      "name": "尾巴共舞",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/尾巴共舞.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "尾巴卷住自己",
+      "name": "尾巴卷住自己",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/尾巴卷住自己.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "尾巴大幅摆动",
+      "name": "尾巴大幅摆动",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/尾巴大幅摆动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "尾巴拍打地面",
+      "name": "尾巴拍打地面",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/尾巴拍打地面.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "尾巴竖立探测",
+      "name": "尾巴竖立探测",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/尾巴竖立探测.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "屈膝侧礼",
+      "name": "屈膝侧礼",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/屈膝侧礼.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "左右张望",
+      "name": "左右张望",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/左右张望.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "平板支撑预备",
+      "name": "平板支撑预备",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/平板支撑预备.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "开合跳升级版",
+      "name": "开合跳升级版",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/开合跳升级版.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "开心蹦跳",
+      "name": "开心蹦跳",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/开心蹦跳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "弓步下压",
+      "name": "弓步下压",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/弓步下压.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "弹奏钢琴",
+      "name": "弹奏钢琴",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/弹奏钢琴.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机伸懒腰",
+      "name": "待机伸懒腰",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机伸懒腰.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机发丝飘落",
+      "name": "待机发丝飘落",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机发丝飘落.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机吞口水",
+      "name": "待机吞口水",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机吞口水.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机呆毛摆动",
+      "name": "待机呆毛摆动",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机呆毛摆动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机呼吸起伏",
+      "name": "待机呼吸起伏",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机呼吸起伏.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机尾巴轻甩",
+      "name": "待机尾巴轻甩",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机尾巴轻甩.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机微晃重心",
+      "name": "待机微晃重心",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机微晃重心.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机打哈欠",
+      "name": "待机打哈欠",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机打哈欠.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机气息悬停",
+      "name": "待机气息悬停",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机气息悬停.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机深呼吸",
+      "name": "待机深呼吸",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机深呼吸.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机眨眼凝视",
+      "name": "待机眨眼凝视",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机眨眼凝视.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机瞌睡点头",
+      "name": "待机瞌睡点头",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机瞌睡点头.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机耳朵抽动",
+      "name": "待机耳朵抽动",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机耳朵抽动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "待机裙摆整理",
+      "name": "待机裙摆整理",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机裙摆整理.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "得意叉腰仰头",
+      "name": "得意叉腰仰头",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/得意叉腰仰头.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "得意炫耀",
+      "name": "得意炫耀",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/得意炫耀.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "悬浮微漂",
+      "name": "悬浮微漂",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/悬浮微漂.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "惊吓后缩",
+      "name": "惊吓后缩",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/惊吓后缩.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "惊讶瞪眼",
+      "name": "惊讶瞪眼",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/惊讶瞪眼.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "感动落泪",
+      "name": "感动落泪",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/感动落泪.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "感激鞠躬",
+      "name": "感激鞠躬",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/感激鞠躬.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "慌张摆手",
+      "name": "慌张摆手",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/慌张摆手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "慢动作挥手舞",
+      "name": "慢动作挥手舞",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/慢动作挥手舞.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "手指计数",
+      "name": "手指计数",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/手指计数.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "手腕脚踝绕环",
+      "name": "手腕脚踝绕环",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/手腕脚踝绕环.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "打字哑剧",
+      "name": "打字哑剧",
+      "category": "工作职业",
+      "sources": {
+        "webp": "spritesheet/打字哑剧.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "打气呐喊",
+      "name": "打气呐喊",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/打气呐喊.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "打鼓节拍",
+      "name": "打鼓节拍",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/打鼓节拍.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "扫地动作",
+      "name": "扫地动作",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/扫地动作.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "扭腰",
+      "name": "扭腰",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/扭腰.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "扶额无语",
+      "name": "扶额无语",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/扶额无语.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "投篮出手",
+      "name": "投篮出手",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/投篮出手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "抖手甩指",
+      "name": "抖手甩指",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/抖手甩指.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "抖肩",
+      "name": "抖肩",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/抖肩.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "折叠衣物",
+      "name": "折叠衣物",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/折叠衣物.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "抛接杂耍",
+      "name": "抛接杂耍",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/抛接杂耍.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "抛接空手",
+      "name": "抛接空手",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/抛接空手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "抬头望天",
+      "name": "抬头望天",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/抬头望天.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "抱臂",
+      "name": "抱臂",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/抱臂.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拉伸大腿后侧",
+      "name": "拉伸大腿后侧",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/拉伸大腿后侧.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拉小提琴",
+      "name": "拉小提琴",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/拉小提琴.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拉弓射箭",
+      "name": "拉弓射箭",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/拉弓射箭.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拉拉链",
+      "name": "拉拉链",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/拉拉链.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拍照取景",
+      "name": "拍照取景",
+      "category": "工作职业",
+      "sources": {
+        "webp": "spritesheet/拍照取景.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拍腿节拍",
+      "name": "拍腿节拍",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/拍腿节拍.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "招手过来",
+      "name": "招手过来",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/招手过来.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "拧瓶盖",
+      "name": "拧瓶盖",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/拧瓶盖.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "挥手单手",
+      "name": "挥手单手",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/挥手单手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "挥手双手",
+      "name": "挥手双手",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/挥手双手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "挥手告别三连",
+      "name": "挥手告别三连",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/挥手告别三连.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "挥拍击球",
+      "name": "挥拍击球",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/挥拍击球.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "挥棒击球",
+      "name": "挥棒击球",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/挥棒击球.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "挺肚子收缩",
+      "name": "挺肚子收缩",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/挺肚子收缩.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "提篮行走原地",
+      "name": "提篮行走原地",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/提篮行走原地.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "握拳打气",
+      "name": "握拳打气",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/握拳打气.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "握麦克风演唱",
+      "name": "握麦克风演唱",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/握麦克风演唱.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "摇头否定",
+      "name": "摇头否定",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/摇头否定.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "摇摆骨盆",
+      "name": "摇摆骨盆",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/摇摆骨盆.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "撑伞姿势",
+      "name": "撑伞姿势",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/撑伞姿势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "撩剑上挑",
+      "name": "撩剑上挑",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/撩剑上挑.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "擦拭玻璃",
+      "name": "擦拭玻璃",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/擦拭玻璃.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "收尾谢幕",
+      "name": "收尾谢幕",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/收尾谢幕.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "施法手势",
+      "name": "施法手势",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/施法手势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "无聊打哈欠伸腰",
+      "name": "无聊打哈欠伸腰",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/无聊打哈欠伸腰.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "无语叹气",
+      "name": "无语叹气",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/无语叹气.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "机械舞定点",
+      "name": "机械舞定点",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/机械舞定点.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "格挡架开",
+      "name": "格挡架开",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/格挡架开.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "格斗起手式",
+      "name": "格斗起手式",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/格斗起手式.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "梳头编发",
+      "name": "梳头编发",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/梳头编发.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "横扫格开",
+      "name": "横扫格开",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/横扫格开.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "歪头好奇",
+      "name": "歪头好奇",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/歪头好奇.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "比心单手",
+      "name": "比心单手",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/比心单手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "比心双手头顶v2",
+      "name": "比心双手头顶v2",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/比心双手头顶v2.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "沮丧垂头v2",
+      "name": "沮丧垂头v2",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/沮丧垂头v2.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "治愈之光",
+      "name": "治愈之光",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/治愈之光.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "波浪手",
+      "name": "波浪手",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/波浪手.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "波浪转身",
+      "name": "波浪转身",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/波浪转身.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "深蹲两次",
+      "name": "深蹲两次",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/深蹲两次.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "深蹲跳",
+      "name": "深蹲跳",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/深蹲跳.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "温柔注视",
+      "name": "温柔注视",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/温柔注视.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "点头肯定",
+      "name": "点头肯定",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/点头肯定.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "焦虑踱步",
+      "name": "焦虑踱步",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/焦虑踱步.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "燕式平衡",
+      "name": "燕式平衡",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/燕式平衡.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "犹豫退缩",
+      "name": "犹豫退缩",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/犹豫退缩.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "狂喜跃起",
+      "name": "狂喜跃起",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/狂喜跃起.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "猫伸懒腰",
+      "name": "猫伸懒腰",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/猫伸懒腰.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "猫咪蜷卧起身",
+      "name": "猫咪蜷卧起身",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/猫咪蜷卧起身.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "猫洗脸",
+      "name": "猫洗脸",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/猫洗脸.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "生气鼓腮",
+      "name": "生气鼓腮",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/生气鼓腮.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "甩臂放松",
+      "name": "甩臂放松",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/甩臂放松.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "疑惑挠头",
+      "name": "疑惑挠头",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/疑惑挠头.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "直拳连击",
+      "name": "直拳连击",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/直拳连击.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "盾牌护体",
+      "name": "盾牌护体",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/盾牌护体.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "突刺手势",
+      "name": "突刺手势",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/突刺手势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "竖大拇指",
+      "name": "竖大拇指",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/竖大拇指.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "端杯饮用",
+      "name": "端杯饮用",
+      "category": "吃喝",
+      "sources": {
+        "webp": "spritesheet/端杯饮用.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "系鞋带",
+      "name": "系鞋带",
+      "category": "日常起居",
+      "sources": {
+        "webp": "spritesheet/系鞋带.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "缝纫穿针",
+      "name": "缝纫穿针",
+      "category": "手工节日",
+      "sources": {
+        "webp": "spritesheet/缝纫穿针.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "翅膀状裙摆张开",
+      "name": "翅膀状裙摆张开",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/翅膀状裙摆张开.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "翻阅书册",
+      "name": "翻阅书册",
+      "category": "娱乐休闲",
+      "sources": {
+        "webp": "spritesheet/翻阅书册.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "胜利收势",
+      "name": "胜利收势",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/胜利收势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "节奏点头踏脚",
+      "name": "节奏点头踏脚",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/节奏点头踏脚.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "节奏耸肩",
+      "name": "节奏耸肩",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/节奏耸肩.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "落地单膝跪",
+      "name": "落地单膝跪",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/落地单膝跪.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "螃蟹横行",
+      "name": "螃蟹横行",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/螃蟹横行.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "装睡偷看",
+      "name": "装睡偷看",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/装睡偷看.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "裙摆旋开静止",
+      "name": "裙摆旋开静止",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/裙摆旋开静止.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "谢幕转身离去",
+      "name": "谢幕转身离去",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/谢幕转身离去.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "跺脚节拍",
+      "name": "跺脚节拍",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/跺脚节拍.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "踢腿前踢",
+      "name": "踢腿前踢",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/踢腿前踢.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "踢踏碎步",
+      "name": "踢踏碎步",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/踢踏碎步.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "踮脚伸展",
+      "name": "踮脚伸展",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/踮脚伸展.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "转体一周",
+      "name": "转体一周",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/转体一周.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "转肩热身",
+      "name": "转肩热身",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/转肩热身.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "连击收势",
+      "name": "连击收势",
+      "category": "武术格斗",
+      "sources": {
+        "webp": "spritesheet/连击收势.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "遮眼偷看",
+      "name": "遮眼偷看",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/遮眼偷看.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "长发披散甩落",
+      "name": "长发披散甩落",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/长发披散甩落.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "震惊僵住",
+      "name": "震惊僵住",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/震惊僵住.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "鞠躬轻",
+      "name": "鞠躬轻",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/鞠躬轻.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "鞠躬重",
+      "name": "鞠躬重",
+      "category": "礼仪致意",
+      "sources": {
+        "webp": "spritesheet/鞠躬重.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "飞吻",
+      "name": "飞吻",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/飞吻.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "骄傲昂首",
+      "name": "骄傲昂首",
+      "category": "情绪反应",
+      "sources": {
+        "webp": "spritesheet/骄傲昂首.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "高抬腿冲刺",
+      "name": "高抬腿冲刺",
+      "category": "运动健身",
+      "sources": {
+        "webp": "spritesheet/高抬腿冲刺.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 19,
+        "frameCount": 152,
+        "fps": 12
+      }
+    },
+    {
+      "id": "鱼儿摆尾",
+      "name": "鱼儿摆尾",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/鱼儿摆尾.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "鳍饰展平",
+      "name": "鳍饰展平",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/鳍饰展平.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "鹤立单腿",
+      "name": "鹤立单腿",
+      "category": "模仿动物",
+      "sources": {
+        "webp": "spritesheet/鹤立单腿.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "鼓掌",
+      "name": "鼓掌",
+      "category": "手势互动",
+      "sources": {
+        "webp": "spritesheet/鼓掌.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "龙吟无声",
+      "name": "龙吟无声",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/龙吟无声.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "龙威凝视",
+      "name": "龙威凝视",
+      "category": "魔法特效",
+      "sources": {
+        "webp": "spritesheet/龙威凝视.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "龙角互蹭",
+      "name": "龙角互蹭",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/龙角互蹭.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    },
+    {
+      "id": "龙角微光脉动",
+      "name": "龙角微光脉动",
+      "category": "龙族特性",
+      "sources": {
+        "webp": "spritesheet/龙角微光脉动.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 23,
+        "frameCount": 180,
+        "fps": 12
+      }
+    }
+  ],
+  "metadata": {
+    "resourceFormat": "Per-action lossy WebP spritesheets with alpha; optional AAC m4a audio track",
+    "sourceVideos": "*.webm enumerated from --source-dir; filename without extension is the animation id",
+    "conversion": {
+      "frameWidth": 640,
+      "frameHeight": 360,
+      "fps": 12,
+      "columns": 8,
+      "rows": "ceil(actual fps-filtered frame count / columns)",
+      "frameCountMethod": "FFmpeg fps filter -> null output -> final progress frame count",
+      "imageFormat": "webp",
+      "lossless": false,
+      "maxImageBytes": 1500000,
+      "qualityCeiling": 100,
+      "qualitySearch": "Per-image RGB integer binary search; alpha quality 50/25/10/1 as needed; encoded bytes strictly below maxImageBytes",
+      "encoder": "cwebp -m 4 -mt",
+      "alphaHandling": "Source alpha preserved via RGBA tiles; alpha-free sources encode fully opaque and libwebp omits the alpha plane",
+      "audio": "First audio stream extracted to audio/<id>.m4a (AAC; stream copy when the source is already AAC, otherwise 192k re-encode); a silent source retains an existing m4a from an earlier export of the same performance (json AudioNote); no manifest audio reference only when neither exists",
+      "script": "convert_video_pet_spritesheet.py"
+    }
+  }
+}

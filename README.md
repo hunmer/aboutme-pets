@@ -25,7 +25,7 @@ pets/dsh1/NOTICE.txt           第二批素材来源与许可说明
 pets/dsh1/BATCH-source.txt     第二批 166 个动作的来源与转换记录
 convert_video_pet_spritesheet.ps1  WebM → 透明 WebP 精灵图转换脚本（PowerShell 7）
 convert_video_pet_spritesheet.py   同一脚本的 Python 实现（macOS/Linux，多进程，默认 1.5MB 上限）
-preview.html                   本地预览页（左预览 / 右分类 / 顶部角色切换）
+index.html                    预览页（左预览 / 右分类 / 顶部角色切换，GitHub Pages 入口）
 preview.json                   预览清单：宠物 → 分类 → 动作（含精灵图规格与音轨路径）
 build_preview.py               读取 pets.json 与各包 actions.json 生成 preview.json
 Transparent-Video-Maker/       视频去绿幕工具（Tkinter GUI + ffmpeg/rembg），用于去 AI 视频的绿幕
@@ -43,12 +43,16 @@ Transparent-Video-Maker/       视频去绿幕工具（Tkinter GUI + ffmpeg/remb
 `convert_video_pet_spritesheet.ps1`，资源规格见 `about-me` 仓库
 `assets/live2d/video/dsh_pet/README.md`。
 
+## 在线预览（GitHub Pages）
+
+<https://hunmer.github.io/aboutme-pets/>
+
 ## 本地预览
 
-`preview.html` 直接读 `preview.json`（`file://` fallback 到内联副本），无需构建：
+`index.html` 直接读 `preview.json`（`file://` fallback 到内联副本），无需构建：
 
 ```bash
-python3 -m http.server 8901   # 在仓库根目录启动，浏览器打开 /preview.html
+python3 -m http.server 8901   # 在仓库根目录启动，浏览器打开 /
 ```
 
 页面顶部切换角色包，左侧按 12fps 播放当前动作（空格暂停、`←`/`→` 逐帧、

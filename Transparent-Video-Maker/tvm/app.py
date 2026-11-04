@@ -8,7 +8,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, colorchooser
 
 from .theme import *  # noqa: F401,F403
-from .tools import REMBG_EXE, clean_env
+from .tools import REMBG_EXE, clean_env, find_videos, output_path, plan_batch
 from .encode import encode_cmd
 from .preview import PreviewMixin
 from .pipeline import PipelineMixin
@@ -25,10 +25,19 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
 
         self.running = False
         self.proc = None
+        # Parallel batch: every live process is registered here so STOP can
+        # kill them all (the single self.proc slot can't hold N workers).
+        self._procs = {}
+        self._procs_lock = threading.Lock()
 
         # ── Pipeline vars ──────────────────────────────────────────────────
         self.video_path   = tk.StringVar()
         self.output_dir   = tk.StringVar()
+        self.batch_dir    = tk.StringVar()
+        self.batch_recursive    = tk.BooleanVar(value=False)
+        self.batch_skip_existing = tk.BooleanVar(value=False)
+        self.batch_on_error     = tk.StringVar(value="continue")
+        self.batch_workers      = tk.IntVar(value=2)
         self.framerate    = tk.StringVar(value="30")
         self.crf          = tk.IntVar(value=25)
         self.out_format   = tk.StringVar(value="webm")
@@ -110,6 +119,10 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
                     self.remove_mode, self.rembg_model):
             var.trace_add("write", lambda *a: self._prev_settings_changed())
 
+        # Batch info line follows the batch settings (recursive / skip).
+        for var in (self.batch_recursive, self.batch_skip_existing):
+            var.trace_add("write", lambda *a: self._update_batch_info())
+
         # Worker threads never touch Tk: they push results here and the main
         # thread drains the queue on its own event-loop tick.
         self.after(80, self._prev_poll)
@@ -172,6 +185,59 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
         if p:
             self.output_dir.set(p)
 
+    # ── Batch (folder) import ────────────────────────────────────────────
+    def _browse_batch(self):
+        p = filedialog.askdirectory(title="Select folder of videos")
+        if not p:
+            return
+        self.batch_dir.set(p)
+        videos = find_videos(p, recursive=self.batch_recursive.get())
+        if videos:
+            # Preview keeps tuning on the first clip of the batch.
+            self.video_path.set(videos[0])
+            if not self.output_dir.get():
+                self.output_dir.set(p)
+        self._update_batch_info()
+        self._wlog(self.pipe_log,
+                   f"\n─── Folder imported: {p}\n"
+                   f"     {len(videos)} video(s) found — RUN now processes "
+                   f"them all.\n", "head" if videos else "warn")
+
+    def _clear_batch(self):
+        if self.batch_dir.get():
+            self.batch_dir.set("")
+            self._update_batch_info()
+            self._wlog(self.pipe_log,
+                       "\n     Folder import cleared — back to single-video "
+                       "mode.\n")
+
+    def _update_batch_info(self):
+        lbl = getattr(self, "batch_info_lbl", None)
+        if lbl is None:
+            return
+        folder = self.batch_dir.get().strip()
+        if not folder:
+            lbl.config(text="", fg=SUBTEXT)
+            return
+        videos = find_videos(folder, recursive=self.batch_recursive.get())
+        if not videos:
+            lbl.config(text="●  no videos found in this folder "
+                            "(mp4 / mov / avi / webm / mkv)", fg=WARNING)
+            return
+        scope = "incl. subfolders" if self.batch_recursive.get() \
+            else "top level only"
+        if self.batch_skip_existing.get():
+            outdir = self.output_dir.get().strip() or folder
+            plan = plan_batch(videos, outdir, self.out_format.get(),
+                              skip_existing=True)
+            done = len(videos) - len(plan)
+            lbl.config(text=f"●  {len(plan)} to process · {done} already done "
+                            f"· {len(videos)} found ({scope})",
+                       fg=SUCCESS if plan else WARNING)
+        else:
+            lbl.config(text=f"●  {len(videos)} videos queued ({scope}) — RUN "
+                            "processes every clip", fg=SUCCESS)
+
     # ── Tool check ────────────────────────────────────────────────────────
     def _check_tools(self):
         self._wlog(self.pipe_log,
@@ -220,33 +286,47 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
         self.after(0, lambda: self._set_step(idx, state))
 
     # ── Run command ───────────────────────────────────────────────────────
-    def _run_cmd(self, cmd, log):
-        self._wlog(log, f"  $ {' '.join(cmd)}\n")
+    def _run_cmd(self, cmd, log, tag=""):
+        self._wlog(log, f"{tag}  $ {' '.join(cmd)}\n")
+        proc = None
         try:
-            self.proc = subprocess.Popen(
+            proc = subprocess.Popen(
                 cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                 text=True, encoding="utf-8", errors="replace",
                 env=clean_env())
-            for line in self.proc.stdout:
+            with self._procs_lock:
+                self._procs[id(proc)] = proc
+            self.proc = proc
+            for line in proc.stdout:
                 s = line.rstrip()
                 if s:
-                    self._wlog(log, f"    {s}\n")
-            self.proc.wait()
-            return self.proc.returncode == 0
+                    self._wlog(log, f"{tag}    {s}\n")
+            proc.wait()
+            return proc.returncode == 0
         except FileNotFoundError as e:
-            self._wlog(log, f"  Command not found: {e}\n", "err")
+            self._wlog(log, f"{tag}  Command not found: {e}\n", "err")
             return False
+        finally:
+            if proc is not None:
+                with self._procs_lock:
+                    self._procs.pop(id(proc), None)
 
     # ── Encode helper (shared) ────────────────────────────────────────────
     def _encode(self, frames_dir, fps, crf, fmt, outfile, log,
-                pattern="frame%04d.png"):
+                pattern="frame%04d.png", tag=""):
         cmd = encode_cmd(frames_dir, fps, crf, fmt, outfile, pattern=pattern)
-        return self._run_cmd(cmd, log)
+        return self._run_cmd(cmd, log, tag)
 
     # ── Stop ──────────────────────────────────────────────────────────────
     def _stop(self):
-        if self.proc:
-            self.proc.terminate()
+        self.running = False
+        with self._procs_lock:
+            procs = list(self._procs.values())
+        for p in procs:
+            try:
+                p.terminate()
+            except Exception:
+                pass
         self._pipe_done()
         self._fv_done()
         self._wlog(self.pipe_log, "\n  ■  Stopped by user.\n", "warn")

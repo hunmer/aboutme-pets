@@ -37,6 +37,45 @@ def find_rembg():
 
 REMBG_EXE = find_rembg()
 
+# Video extensions recognised by the GUI (kept in sync with the open-file dialog).
+VIDEO_EXTS = (".mp4", ".mov", ".avi", ".webm", ".mkv")
+
+
+def find_videos(folder, recursive=False):
+    """Video files in `folder`, sorted by name (walks subfolders when asked)."""
+    if recursive:
+        out = []
+        for root, dirs, files in os.walk(folder):
+            dirs.sort()
+            for f in sorted(files):
+                if f.lower().endswith(VIDEO_EXTS):
+                    out.append(os.path.join(root, f))
+        return out
+    try:
+        names = os.listdir(folder)
+    except OSError:
+        return []
+    return [os.path.join(folder, n) for n in sorted(names)
+            if n.lower().endswith(VIDEO_EXTS)
+            and os.path.isfile(os.path.join(folder, n))]
+
+
+def output_path(outdir, video, fmt):
+    """Output file for one pipeline run — the single naming convention."""
+    base = os.path.splitext(os.path.basename(video))[0]
+    return os.path.join(outdir, f"{base}_transparent.{fmt}")
+
+
+def plan_batch(videos, outdir, fmt, skip_existing=False):
+    """[(video, outfile), ...]; drops clips whose output already exists."""
+    plan = []
+    for v in videos:
+        out = output_path(outdir, v, fmt)
+        if skip_existing and os.path.exists(out):
+            continue
+        plan.append((v, out))
+    return plan
+
 
 def clean_env():
     """Environment dict for child processes.

@@ -1,5 +1,6 @@
 """Transparent Video Maker — Full Pipeline tab: extract → matte → encode."""
 import os
+import queue
 import re
 import shutil
 import subprocess
@@ -8,7 +9,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, colorchooser
 
 from .theme import *  # noqa: F401,F403
-from .tools import REMBG_EXE, clean_env
+from .tools import REMBG_EXE, clean_env, find_videos, output_path, plan_batch
 
 
 class PipelineMixin:
@@ -21,6 +22,67 @@ class PipelineMixin:
         make_section(inner, "01 — INPUT & OUTPUT")
         make_entry_row(inner, "Video file:",    self.video_path,  self._browse_video)
         make_entry_row(inner, "Output folder:", self.output_dir,  self._browse_output)
+
+        # Batch import: point at a folder and RUN processes every video in it.
+        batch_row = tk.Frame(inner, bg=BG)
+        batch_row.pack(fill="x", padx=24, pady=5)
+        tk.Label(batch_row, text="Import folder:", width=14, anchor="w",
+                 font=("Consolas", 10), fg=SUBTEXT, bg=BG).pack(side="left")
+        tk.Entry(batch_row, textvariable=self.batch_dir,
+                 font=("Consolas", 10), bg=PANEL, fg=TEXT, insertbackground=TEXT,
+                 relief="flat", bd=0, highlightthickness=1,
+                 highlightbackground=BORDER, highlightcolor=ACCENT
+                 ).pack(side="left", fill="x", expand=True, ipady=5,
+                        padx=(0, 6))
+        make_btn(batch_row, "Browse", self._browse_batch,
+                 small=True).pack(side="left", padx=(0, 4))
+        make_btn(batch_row, "Clear", self._clear_batch,
+                 small=True).pack(side="left")
+        self.batch_info_lbl = tk.Label(inner, text="", font=("Consolas", 8),
+                                       fg=SUBTEXT, bg=BG, anchor="w")
+        self.batch_info_lbl.pack(fill="x", padx=24)
+
+        # Batch settings panel (matters only when a folder is imported).
+        bset = tk.Frame(inner, bg=PANEL2, highlightthickness=1,
+                        highlightbackground=BORDER)
+        bset.pack(fill="x", padx=24, pady=(4, 0), ipady=4)
+        bs1 = tk.Frame(bset, bg=PANEL2)
+        bs1.pack(fill="x", padx=12, pady=(4, 1))
+        tk.Label(bs1, text="Batch settings:", font=("Consolas", 9, "bold"),
+                 fg=SUBTEXT, bg=PANEL2).pack(side="left", padx=(0, 10))
+        tk.Checkbutton(bs1, text="  Include subfolders",
+                       variable=self.batch_recursive,
+                       font=("Consolas", 9), fg=TEXT, bg=PANEL2,
+                       selectcolor=PANEL, activebackground=PANEL2,
+                       activeforeground=TEXT, relief="flat"
+                       ).pack(side="left", padx=(0, 14))
+        tk.Checkbutton(bs1, text="  Skip existing output",
+                       variable=self.batch_skip_existing,
+                       font=("Consolas", 9), fg=TEXT, bg=PANEL2,
+                       selectcolor=PANEL, activebackground=PANEL2,
+                       activeforeground=TEXT, relief="flat"
+                       ).pack(side="left")
+        bs2 = tk.Frame(bset, bg=PANEL2)
+        bs2.pack(fill="x", padx=12, pady=(1, 4))
+        tk.Label(bs2, text="On error:", font=("Consolas", 9),
+                 fg=SUBTEXT, bg=PANEL2).pack(side="left", padx=(0, 6))
+        for val, lbl in [("continue", "Continue with next clip"),
+                         ("stop",     "Stop the batch")]:
+            tk.Radiobutton(bs2, text=f" {lbl}", variable=self.batch_on_error,
+                           value=val, font=("Consolas", 9), fg=TEXT,
+                           bg=PANEL2, selectcolor=PANEL,
+                           activebackground=PANEL2, activeforeground=ACCENT,
+                           relief="flat").pack(side="left", padx=(0, 14))
+        tk.Label(bs2, text="Parallel:", font=("Consolas", 9),
+                 fg=SUBTEXT, bg=PANEL2).pack(side="left", padx=(0, 4))
+        tk.Spinbox(bs2, from_=1, to=8, textvariable=self.batch_workers,
+                   width=3, font=("Consolas", 9), bg=PANEL, fg=TEXT,
+                   insertbackground=TEXT, relief="flat", highlightthickness=1,
+                   highlightbackground=BORDER, highlightcolor=ACCENT,
+                   buttonbackground=PANEL2
+                   ).pack(side="left")
+        tk.Label(bs2, text="clips at once", font=("Consolas", 8),
+                 fg=SUBTEXT, bg=PANEL2).pack(side="left", padx=(6, 0))
 
         # 02 Frame extraction
         make_section(inner, "02 — FRAME EXTRACTION  (ffmpeg)")
@@ -230,100 +292,224 @@ class PipelineMixin:
         make_section(inner, "LOG", pady_top=8)
         self.pipe_log = make_log(inner)
         self._wlog(self.pipe_log,
-                   "Ready. Select your video and click  ▶ RUN FULL PIPELINE.\n",
+                   "Ready. Select a video — or import a folder — and click  "
+                   "▶ RUN FULL PIPELINE.\n",
                    "head")
         return outer
 
     def _run_pipeline(self):
+        # Batch mode: an imported folder wins over the single video file.
+        batch = self.batch_dir.get().strip()
+        if batch:
+            if not os.path.isdir(batch):
+                messagebox.showerror(
+                    "Folder missing",
+                    "The imported folder no longer exists:\n" + batch)
+                return
+            videos = find_videos(batch, recursive=self.batch_recursive.get())
+            if not videos:
+                messagebox.showerror(
+                    "No videos",
+                    "No video files found in the imported folder"
+                    + (" (including subfolders)" if self.batch_recursive.get()
+                       else "") + ":\n" + batch)
+                return
+            outdir = self.output_dir.get().strip() or batch
+            plan = plan_batch(videos, outdir, self.out_format.get(),
+                              skip_existing=self.batch_skip_existing.get())
+            if not plan:
+                messagebox.showinfo(
+                    "Nothing to do",
+                    f"All {len(videos)} clip(s) already have an output file "
+                    f"in:\n{outdir}\n\n"
+                    "Untick \u201cSkip existing output\u201d to re-process them.")
+                return
+            self._start_run()
+            threading.Thread(target=self._batch_thread,
+                             args=(plan, outdir, len(videos) - len(plan)),
+                             daemon=True).start()
+            return
+
         video  = self.video_path.get().strip()
         outdir = self.output_dir.get().strip() or os.path.dirname(video)
         if not video or not os.path.isfile(video):
             messagebox.showerror("No video", "Please select a valid video file.")
             return
+        self._start_run()
+        threading.Thread(target=self._pipeline_thread,
+                         args=(video, outdir), daemon=True).start()
+
+    def _start_run(self):
         self.run_btn.config(state="disabled")
         self.stop_btn.config(state="normal")
         self.running = True
         self.pipe_pb.start(12)
         for i in range(3): self._set_step(i, "idle")
-        threading.Thread(target=self._pipeline_thread,
-                         args=(video, outdir), daemon=True).start()
 
     def _pipeline_thread(self, video, outdir):
         log = self.pipe_log
         try:
-            base   = os.path.splitext(os.path.basename(video))[0]
-            frames = os.path.join(outdir, f"{base}_frames")
-            transp = os.path.join(outdir, f"{base}_transparent")
-            fps    = self.framerate.get() or "30"
-            os.makedirs(frames, exist_ok=True)
-
-            # Step 1
-            self._step_ui(0, "running")
-            self._wlog(log, f"\n▶  STEP 1 — Extracting frames…\n", "head")
-            ok = self._run_cmd(
-                ["ffmpeg", "-y", "-i", video, "-pix_fmt", "rgba",
-                 os.path.join(frames, "frame%04d.png")], log)
-            if not ok:
-                self._step_ui(0, "error"); return
-            self._step_ui(0, "done")
-            n = len([f for f in os.listdir(frames) if f.endswith(".png")])
-            self._wlog(log, f"  → {n} frames extracted\n", "ok")
-
-            # Step 2
-            self._step_ui(1, "running")
-            mode = self.remove_mode.get()
-            if mode == "chroma":
-                self._wlog(log, "\n▶  STEP 2 — Chroma key removal…\n", "head")
-                os.makedirs(transp, exist_ok=True)
-                hex_col  = self.chroma_color.get().lstrip("#")
-                color_str = f"0x{hex_col.upper()}"
-                sim      = round(self.chroma_sim.get(), 3)
-                blend    = round(self.chroma_blend.get(), 3)
-                self._wlog(log, f"  Color: #{hex_col.upper()}  "
-                                 f"Similarity: {sim}  Blend: {blend}\n")
-                vf  = f"chromakey={color_str}:{sim}:{blend}"
-                ok  = self._run_cmd([
-                    "ffmpeg", "-y",
-                    "-i", os.path.join(frames, "frame%04d.png"),
-                    "-vf", vf,
-                    "-pix_fmt", "yuva420p",
-                    os.path.join(transp, "frame%04d.png")
-                ], log)
-            else:
-                os.makedirs(transp, exist_ok=True)
-                self._wlog(log, f"\n▶  STEP 2 — AI removal "
-                                 f"({self.rembg_model.get()})…\n", "head")
-                cmd = [REMBG_EXE or "rembg", "p"]
-                if self.rembg_model.get() != "u2net":
-                    cmd += ["-m", self.rembg_model.get()]
-                cmd += [frames, transp]
-                ok = self._run_cmd(cmd, log)
-            if not ok:
-                self._step_ui(1, "error"); return
-            self._step_ui(1, "done")
-
-            # Step 3
-            self._step_ui(2, "running")
-            outfile = os.path.join(outdir,
-                                   f"{base}_transparent.{self.out_format.get()}")
-            self._wlog(log, f"\n▶  STEP 3 — Encoding {self.out_format.get()}…\n",
-                       "head")
-            ok = self._encode(transp, fps, self.crf.get(),
-                              self.out_format.get(), outfile, log)
-            if not ok:
-                self._step_ui(2, "error"); return
-            self._step_ui(2, "done")
-
-            if not self.keep_frames.get():
-                shutil.rmtree(frames, ignore_errors=True)
-                shutil.rmtree(transp, ignore_errors=True)
-                self._wlog(log, "  → Temp folders removed.\n")
-
-            self._wlog(log, f"\n✓  ALL DONE!  →  {outfile}\n\n", "ok")
+            outfile = self._process_video(video, outdir)
+            if outfile:
+                self._wlog(log, f"\n✓  ALL DONE!  →  {outfile}\n\n", "ok")
         except Exception as ex:
             self._wlog(log, f"\n  Unexpected error: {ex}\n", "err")
         finally:
             self.after(0, self._pipe_done)
+
+    def _spawn_workers(self, fn, n):
+        """Start n worker threads; returns them for joining."""
+        ts = [threading.Thread(target=fn, daemon=True) for _ in range(n)]
+        for t in ts:
+            t.start()
+        return ts
+
+    def _batch_thread(self, plan, outdir, skipped=0):
+        """Run the planned clips through N parallel worker threads.
+
+        Workers pull (i, video, outfile) items from a shared queue, so the
+        batch keeps every CPU busy instead of one clip at a time. A failed
+        clip is counted and skipped unless the on-error policy is "stop";
+        the STOP button (self.running=False) aborts dispatch and kills all
+        live ffmpeg/rembg processes (see App._stop).
+        """
+        log = self.pipe_log
+        total = len(plan)
+        policy = self.batch_on_error.get()
+        n = max(1, min(int(self.batch_workers.get()), total))
+        q = queue.Queue()
+        for item in enumerate(plan, 1):
+            q.put(item)
+        st = {"ok": 0, "fail": 0}
+        st_lock = threading.Lock()
+
+        def worker():
+            while self.running:
+                try:
+                    i, (video, _outfile) = q.get_nowait()
+                except queue.Empty:
+                    return
+                name = os.path.basename(video)
+                tag = f"[{i}/{total}] "
+                for s in range(3):
+                    self._step_ui(s, "idle")
+                try:
+                    outfile = self._process_video(video, outdir, tag)
+                except Exception as ex:
+                    self._wlog(log, f"  {tag}Unexpected error: {ex}\n", "err")
+                    outfile = None
+                with st_lock:
+                    if outfile:
+                        st["ok"] += 1
+                    else:
+                        st["fail"] += 1
+                if outfile:
+                    self._wlog(log, f"  {tag}✓ {name}  →  "
+                                    f"{os.path.basename(outfile)}\n", "ok")
+                else:
+                    self._wlog(log, f"  {tag}✗ {name}\n", "err")
+                    if policy == "stop":
+                        self.running = False
+                        self._wlog(log,
+                                   "\n■  Stopping batch — on-error policy "
+                                   "is \"stop\".\n", "warn")
+
+        try:
+            head = f"\n═══ BATCH — {total} video(s) · {n} parallel · "\
+                   f"on error: {policy} ═══\n"
+            if skipped:
+                head = (f"\n═══ BATCH — {total} video(s) · {skipped} skipped "
+                        f"(output exists) · {n} parallel · "
+                        f"on error: {policy} ═══\n")
+            self._wlog(log, head, "head")
+            for t in self._spawn_workers(worker, n):
+                t.join()
+            if self.running:
+                tag = "ok" if not st["fail"] else "warn"
+                self._wlog(log, f"\n✓  BATCH DONE — {st['ok']} ok, "
+                                f"{st['fail']} failed  →  {outdir}\n\n", tag)
+            else:
+                self._wlog(log, f"\n■  BATCH STOPPED — {st['ok']} ok, "
+                                f"{st['fail']} failed  →  {outdir}\n\n",
+                           "warn")
+        finally:
+            self.after(0, self._pipe_done)
+
+    def _process_video(self, video, outdir, tag=""):
+        """Run the 3-step pipeline on ONE video. Returns outfile, or None.
+
+        `tag` (e.g. "[3/12] ") prefixes log lines so parallel workers'
+        output stays attributable in the shared log.
+        """
+        log = self.pipe_log
+        base   = os.path.splitext(os.path.basename(video))[0]
+        frames = os.path.join(outdir, f"{base}_frames")
+        transp = os.path.join(outdir, f"{base}_transparent")
+        fps    = self.framerate.get() or "30"
+        os.makedirs(frames, exist_ok=True)
+
+        # Step 1
+        self._step_ui(0, "running")
+        self._wlog(log, f"\n{tag}▶  STEP 1 — Extracting frames…\n", "head")
+        ok = self._run_cmd(
+            ["ffmpeg", "-y", "-i", video, "-pix_fmt", "rgba",
+             os.path.join(frames, "frame%04d.png")], log, tag)
+        if not ok:
+            self._step_ui(0, "error"); return None
+        self._step_ui(0, "done")
+        n = len([f for f in os.listdir(frames) if f.endswith(".png")])
+        self._wlog(log, f"{tag}  → {n} frames extracted\n", "ok")
+
+        # Step 2
+        self._step_ui(1, "running")
+        mode = self.remove_mode.get()
+        if mode == "chroma":
+            self._wlog(log, f"\n{tag}▶  STEP 2 — Chroma key removal…\n", "head")
+            os.makedirs(transp, exist_ok=True)
+            hex_col  = self.chroma_color.get().lstrip("#")
+            color_str = f"0x{hex_col.upper()}"
+            sim      = round(self.chroma_sim.get(), 3)
+            blend    = round(self.chroma_blend.get(), 3)
+            self._wlog(log, f"{tag}  Color: #{hex_col.upper()}  "
+                             f"Similarity: {sim}  Blend: {blend}\n")
+            vf  = f"chromakey={color_str}:{sim}:{blend}"
+            ok  = self._run_cmd([
+                "ffmpeg", "-y",
+                "-i", os.path.join(frames, "frame%04d.png"),
+                "-vf", vf,
+                "-pix_fmt", "yuva420p",
+                os.path.join(transp, "frame%04d.png")
+            ], log, tag)
+        else:
+            os.makedirs(transp, exist_ok=True)
+            self._wlog(log, f"\n{tag}▶  STEP 2 — AI removal "
+                             f"({self.rembg_model.get()})…\n", "head")
+            cmd = [REMBG_EXE or "rembg", "p"]
+            if self.rembg_model.get() != "u2net":
+                cmd += ["-m", self.rembg_model.get()]
+            cmd += [frames, transp]
+            ok = self._run_cmd(cmd, log, tag)
+        if not ok:
+            self._step_ui(1, "error"); return None
+        self._step_ui(1, "done")
+
+        # Step 3
+        self._step_ui(2, "running")
+        outfile = output_path(outdir, video, self.out_format.get())
+        self._wlog(log, f"\n{tag}▶  STEP 3 — Encoding {self.out_format.get()}…\n",
+                   "head")
+        ok = self._encode(transp, fps, self.crf.get(),
+                          self.out_format.get(), outfile, log, tag=tag)
+        if not ok:
+            self._step_ui(2, "error"); return None
+        self._step_ui(2, "done")
+
+        if not self.keep_frames.get():
+            shutil.rmtree(frames, ignore_errors=True)
+            shutil.rmtree(transp, ignore_errors=True)
+            self._wlog(log, "  → Temp folders removed.\n")
+
+        return outfile
 
     def _pipe_done(self):
         self.running = False

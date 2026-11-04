@@ -23,7 +23,7 @@
       "description": "2026-11 GPT 生成批次，193 个透明 WebP 精灵图动作（待机、情绪、礼仪、运动、乐器等）。",
       "cover": "pets/gpt/spritesheet/待机呼吸起伏.webp",
       "manifest": "pets/gpt/manifest.json",
-      "actions": "pets/gpt/manifest.json"
+      "actions": "pets/gpt/actions.json"
     },
     {
       "id": "claude-pet",
@@ -31,7 +31,7 @@
       "description": "2026-11 Claude 生成批次，32 个透明 WebP 精灵图动作（待机、点击回应、玩耍、才艺等）。",
       "cover": "pets/claude/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/claude/manifest.json",
-      "actions": "pets/claude/manifest.json"
+      "actions": "pets/claude/actions.json"
     }
   ]
 }

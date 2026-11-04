@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""生成预览清单 preview.json，并把清单同步内联进 preview.html。
+"""生成预览清单 preview.json，并把清单同步内联进 index.html。
 
 清单结构（网页与第三方工具都可直接读）：
   schemaVersion / generatedAt / pets[]
@@ -9,7 +9,7 @@
                    frameCount、fps、audio
 
 动作数据来自 pets/<id>/actions.json（回退 manifest.json），路径一律写成仓库根目录相对路径，
-因此 preview.html 需与 preview.json 放在仓库根目录。
+因此 index.html 需与 preview.json 放在仓库根目录。
 """
 
 import datetime
@@ -19,7 +19,7 @@ import re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 INVENTORY_FILE = os.path.join(ROOT, "preview.json")
-HTML_FILE = os.path.join(ROOT, "preview.html")
+HTML_FILE = os.path.join(ROOT, "index.html")
 START = "<!-- preview-inventory:start -->"
 END = "<!-- preview-inventory:end -->"
 

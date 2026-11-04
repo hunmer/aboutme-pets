@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>蓝毛小女仆 · 动作预览</title>
+<title>动作预览</title>
 <style>
   :root {
     --ink: #1b2440;
@@ -152,8 +152,7 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="brand"><span class="dot"></span>蓝毛小女仆 · 动作预览</div>
-  <div class="hint">点击右侧动作播放 · 空格暂停 · ← → 切换</div>
+  <div class="brand"><span class="dot"></span>动作预览</div>
   <nav class="pets" id="petList" aria-label="角色切换"></nav>
 </header>
 
@@ -187,7 +186,7 @@
 <script type="application/json" id="inventory-data">
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T14:25:04+08:00",
+  "generatedAt": "2026-11-04T15:39:47+08:00",
   "source": "pets.json -> pets/<id>/actions.json + spritesheet/*.webp",
   "canvas": {
     "width": 640,
@@ -3823,7 +3822,7 @@
     },
     {
       "id": "gpt-pet",
-      "name": "蓝毛小女仆·GPT 动作包",
+      "name": "GPT 动作包",
       "description": "2026-11 GPT 生成批次，193 个透明 WebP 精灵图动作（待机、情绪、礼仪、运动、乐器等）。",
       "cover": "pets/gpt/spritesheet/待机呼吸起伏.webp",
       "idleAnimationId": "待机呼吸起伏",
@@ -6424,6 +6423,523 @@
               "columns": 8,
               "rows": 23,
               "frameCount": 180,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claude-pet",
+      "name": "Claude 动作包",
+      "description": "2026-11 Claude 生成批次，32 个透明 WebP 精灵图动作（待机、点击回应、玩耍、才艺等）。",
+      "cover": "pets/claude/spritesheet/待机呼吸休闲.webp",
+      "idleAnimationId": "待机呼吸休闲",
+      "actionsFile": "pets\\claude\\manifest.json",
+      "totalActions": 32,
+      "categories": [
+        {
+          "name": "日常起居",
+          "count": 3,
+          "actions": [
+            {
+              "id": "哈欠连天",
+              "name": "哈欠连天",
+              "category": "日常起居",
+              "webp": "pets\\claude\\spritesheet\\哈欠连天.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "打瞌睡被惊醒",
+              "name": "打瞌睡被惊醒",
+              "category": "日常起居",
+              "webp": "pets\\claude\\spritesheet\\打瞌睡被惊醒.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "超大伸懒腰",
+              "name": "超大伸懒腰",
+              "category": "日常起居",
+              "webp": "pets\\claude\\spritesheet\\超大伸懒腰.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "吃喝",
+          "count": 2,
+          "actions": [
+            {
+              "id": "偷吃零食被抓住",
+              "name": "偷吃零食被抓住",
+              "category": "吃喝",
+              "webp": "pets\\claude\\spritesheet\\偷吃零食被抓住.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "吃白饭",
+              "name": "吃白饭",
+              "category": "吃喝",
+              "webp": "pets\\claude\\spritesheet\\吃白饭.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "才艺表演",
+          "count": 4,
+          "actions": [
+            {
+              "id": "优雅裙摆舞",
+              "name": "优雅裙摆舞",
+              "category": "才艺表演",
+              "webp": "pets\\claude\\spritesheet\\优雅裙摆舞.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "可爱宅舞",
+              "name": "可爱宅舞",
+              "category": "才艺表演",
+              "webp": "pets\\claude\\spritesheet\\可爱宅舞.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "小提琴演奏",
+              "name": "小提琴演奏",
+              "category": "才艺表演",
+              "webp": "pets\\claude\\spritesheet\\小提琴演奏.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "轻快摇摆舞",
+              "name": "轻快摇摆舞",
+              "category": "才艺表演",
+              "webp": "pets\\claude\\spritesheet\\轻快摇摆舞.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "娱乐休闲",
+          "count": 3,
+          "actions": [
+            {
+              "id": "书页拍打节奏",
+              "name": "书页拍打节奏",
+              "category": "娱乐休闲",
+              "webp": "pets\\claude\\spritesheet\\书页拍打节奏.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "吹泡泡特效",
+              "name": "吹泡泡特效",
+              "category": "娱乐休闲",
+              "webp": "pets\\claude\\spritesheet\\吹泡泡特效.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "悠闲哼歌",
+              "name": "悠闲哼歌",
+              "category": "娱乐休闲",
+              "webp": "pets\\claude\\spritesheet\\悠闲哼歌.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "情绪反应",
+          "count": 1,
+          "actions": [
+            {
+              "id": "被吓一跳",
+              "name": "被吓一跳",
+              "category": "情绪反应",
+              "webp": "pets\\claude\\spritesheet\\被吓一跳.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "礼仪致意",
+          "count": 1,
+          "actions": [
+            {
+              "id": "淑女屈膝礼",
+              "name": "淑女屈膝礼",
+              "category": "礼仪致意",
+              "webp": "pets\\claude\\spritesheet\\淑女屈膝礼.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "魔法特效",
+          "count": 1,
+          "actions": [
+            {
+              "id": "书灵现世",
+              "name": "书灵现世",
+              "category": "魔法特效",
+              "webp": "pets\\claude\\spritesheet\\书灵现世.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "换装造型",
+          "count": 1,
+          "actions": [
+            {
+              "id": "整体换装试色",
+              "name": "整体换装试色",
+              "category": "换装造型",
+              "webp": "pets\\claude\\spritesheet\\整体换装试色.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "待机",
+          "count": 2,
+          "actions": [
+            {
+              "id": "原地小憩沉眠",
+              "name": "原地小憩沉眠",
+              "category": "待机",
+              "webp": "pets\\claude\\spritesheet\\原地小憩沉眠.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "待机呼吸休闲",
+              "name": "待机呼吸休闲",
+              "category": "待机",
+              "webp": "pets\\claude\\spritesheet\\待机呼吸休闲.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "移动",
+          "count": 3,
+          "actions": [
+            {
+              "id": "原地左转奔跑",
+              "name": "原地左转奔跑",
+              "category": "移动",
+              "webp": "pets\\claude\\spritesheet\\原地左转奔跑.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "原地漂浮踏步",
+              "name": "原地漂浮踏步",
+              "category": "移动",
+              "webp": "pets\\claude\\spritesheet\\原地漂浮踏步.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "螃蟹走路",
+              "name": "螃蟹走路",
+              "category": "移动",
+              "webp": "pets\\claude\\spritesheet\\螃蟹走路.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "玩耍",
+          "count": 4,
+          "actions": [
+            {
+              "id": "原地专心玩魔方",
+              "name": "原地专心玩魔方",
+              "category": "玩耍",
+              "webp": "pets\\claude\\spritesheet\\原地专心玩魔方.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "原地蹲下玩玩具汽车",
+              "name": "原地蹲下玩玩具汽车",
+              "category": "玩耍",
+              "webp": "pets\\claude\\spritesheet\\原地蹲下玩玩具汽车.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "玩水枪",
+              "name": "玩水枪",
+              "category": "玩耍",
+              "webp": "pets\\claude\\spritesheet\\玩水枪.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "玩游戏气急败坏",
+              "name": "玩游戏气急败坏",
+              "category": "玩耍",
+              "webp": "pets\\claude\\spritesheet\\玩游戏气急败坏.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "点击回应",
+          "count": 3,
+          "actions": [
+            {
+              "id": "点击回应-傲娇生气",
+              "name": "点击回应-傲娇生气",
+              "category": "点击回应",
+              "webp": "pets\\claude\\spritesheet\\点击回应-傲娇生气.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "点击回应-害羞惊讶",
+              "name": "点击回应-害羞惊讶",
+              "category": "点击回应",
+              "webp": "pets\\claude\\spritesheet\\点击回应-害羞惊讶.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "点击回应-开心跃动",
+              "name": "点击回应-开心跃动",
+              "category": "点击回应",
+              "webp": "pets\\claude\\spritesheet\\点击回应-开心跃动.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "碎碎念",
+          "count": 1,
+          "actions": [
+            {
+              "id": "深度思考碎碎念v4",
+              "name": "深度思考碎碎念v4",
+              "category": "碎碎念",
+              "webp": "pets\\claude\\spritesheet\\深度思考碎碎念v4.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "小动作",
+          "count": 2,
+          "actions": [
+            {
+              "id": "东张西望",
+              "name": "东张西望",
+              "category": "小动作",
+              "webp": "pets\\claude\\spritesheet\\东张西望.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            },
+            {
+              "id": "原地敲击桌面互动",
+              "name": "原地敲击桌面互动",
+              "category": "小动作",
+              "webp": "pets\\claude\\spritesheet\\原地敲击桌面互动.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
+              "fps": 12,
+              "audio": null
+            }
+          ]
+        },
+        {
+          "name": "拖拽",
+          "count": 1,
+          "actions": [
+            {
+              "id": "被鼠标拖拽悬空反馈",
+              "name": "被鼠标拖拽悬空反馈",
+              "category": "拖拽",
+              "webp": "pets\\claude\\spritesheet\\被鼠标拖拽悬空反馈.webp",
+              "frameWidth": 640,
+              "frameHeight": 360,
+              "columns": 8,
+              "rows": 15,
+              "frameCount": 120,
               "fps": 12,
               "audio": null
             }

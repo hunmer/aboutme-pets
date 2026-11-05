@@ -28,7 +28,7 @@
     {
       "id": "claude-pet",
       "name": "Claude 动作包",
-      "description": "2026-11 Claude 生成批次，32 个透明 WebP 精灵图动作（待机、点击回应、玩耍、才艺等）。",
+      "description": "2026-11 Claude 生成批次，90 个透明 WebP 精灵图动作（待机、点击回应、玩耍、吃喝、节日、工作状态等）。",
       "cover": "pets/claude/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/claude/manifest.json",
       "actions": "pets/claude/actions.json"

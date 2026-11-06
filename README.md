@@ -76,6 +76,9 @@ python3 convert_video_pet_spritesheet.py \
 
 ## 精灵图还原为透明 WebM
 
+通过网盘分享的知识：dsh-webm 透明素材
+链接: [https://pan.baidu.com/s/5oxtYiRXZUZILismVlh0XRA](https://pan.baidu.com/s/5oxtYiRXZUZILismVlh0XRA)
+
 `spritesheet_to_video_pet.py` 是上一步的逆操作：读取 `spritesheet/` 下成对的
 `<id>.webp` + `<id>.json`，按元数据（`FrameWidth/FrameHeight/Columns/FrameCount/SampleFps`）
 把拼贴大图逐帧裁出，重编码为带 alpha 的 VP9 WebM（`yuva420p` + `alpha_mode=1`，

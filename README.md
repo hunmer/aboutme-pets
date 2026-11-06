@@ -36,8 +36,8 @@ Transparent-Video-Maker/       视频去绿幕工具（Tkinter GUI + ffmpeg/remb
 
 ## 来源与许可
 
-素材来自 [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet)
-（固定提交 `b78e3fcf92ac78cee569aed7cc27eeb2a8d51757`），经 FFmpeg 转换
+pets/dsh 素材来自 [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet)
+，经 FFmpeg 转换
 为透明 WebP 精灵图。**素材禁止商用；二创在公开渠道须署名上游仓库。**
 上游两份 LICENSE 均为代码 MIT，不覆盖素材限制。转换脚本为本仓库根目录的
 `convert_video_pet_spritesheet.ps1`，资源规格见 `about-me` 仓库

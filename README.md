@@ -25,6 +25,7 @@ pets/dsh1/NOTICE.txt           第二批素材来源与许可说明
 pets/dsh1/BATCH-source.txt     第二批 166 个动作的来源与转换记录
 convert_video_pet_spritesheet.ps1  WebM → 透明 WebP 精灵图转换脚本（PowerShell 7）
 convert_video_pet_spritesheet.py   同一脚本的 Python 实现（macOS/Linux，多进程，默认 1.5MB 上限）
+spritesheet_to_video_pet.py        反向脚本：透明 WebP 精灵图 + JSON 元数据 → 透明 WebM
 index.html                    预览页（左预览 / 右分类 / 顶部角色切换，GitHub Pages 入口）
 preview.json                   预览清单：宠物 → 分类 → 动作（含精灵图规格与音轨路径）
 build_preview.py               读取 pets.json 与各包 actions.json 生成 preview.json
@@ -72,6 +73,25 @@ python3 convert_video_pet_spritesheet.py \
 ```
 
 默认单张 WebP 上限 1.5MB；30 秒长动作可用 `--bytes-override 动作名=3000000` 放宽。
+
+## 精灵图还原为透明 WebM
+
+`spritesheet_to_video_pet.py` 是上一步的逆操作：读取 `spritesheet/` 下成对的
+`<id>.webp` + `<id>.json`，按元数据（`FrameWidth/FrameHeight/Columns/FrameCount/SampleFps`）
+把拼贴大图逐帧裁出，重编码为带 alpha 的 VP9 WebM（`yuva420p` + `alpha_mode=1`，
+浏览器可直接播放透明背景）。
+
+```bash
+python3 spritesheet_to_video_pet.py \
+  --input-dir pets/claude/spritesheet --output-dir webm-restored --jobs 4
+```
+
+- 自动探测 input-dir 同级的 `audio/<id>.m4a` 并混流（也可 `--audio-dir` 显式指定）；
+- `--resume` 跳过已有输出，`--crf`（默认 20）调质量；单个动作失败不中断整批。
+
+注意：部分 ffmpeg 构建（如 9.x gyan）的原生 VP9 解码器默认不导出 alpha，
+需 `-c:v libvpx-vp9` 解码或在浏览器中查看，文件本身是标准透明 WebM
+（alpha 以 Matroska BlockAdditional 轨存储）。
 
 ## 视频去绿幕（Transparent-Video-Maker）
 

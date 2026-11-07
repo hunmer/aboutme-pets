@@ -342,6 +342,22 @@
       }
     },
     {
+      "id": "变鸽子",
+      "name": "变鸽子",
+      "category": "才艺表演",
+      "sources": {
+        "webp": "spritesheet/变鸽子.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
       "id": "可爱宅舞",
       "name": "可爱宅舞",
       "category": "才艺表演",
@@ -502,6 +518,22 @@
       }
     },
     {
+      "id": "吃粽子",
+      "name": "吃粽子",
+      "category": "吃喝",
+      "sources": {
+        "webp": "spritesheet/吃粽子.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
       "id": "吃糖葫芦",
       "name": "吃糖葫芦",
       "category": "吃喝",
@@ -571,6 +603,22 @@
       "category": "吃喝",
       "sources": {
         "webp": "spritesheet/吃长寿面.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "吃青团",
+      "name": "吃青团",
+      "category": "吃喝",
+      "sources": {
+        "webp": "spritesheet/吃青团.webp"
       },
       "spritesheet": {
         "frameWidth": 640,
@@ -886,6 +934,22 @@
       }
     },
     {
+      "id": "插茱萸赏菊",
+      "name": "插茱萸赏菊",
+      "category": "手工节日",
+      "sources": {
+        "webp": "spritesheet/插茱萸赏菊.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
       "id": "摇扇纳凉",
       "name": "摇扇纳凉",
       "category": "时节",
@@ -950,6 +1014,38 @@
       }
     },
     {
+      "id": "放河灯v2",
+      "name": "放河灯v2",
+      "category": "手工节日",
+      "sources": {
+        "webp": "spritesheet/放河灯v2.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "放河灯v3",
+      "name": "放河灯v3",
+      "category": "手工节日",
+      "sources": {
+        "webp": "spritesheet/放河灯v3.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
       "id": "放烟花",
       "name": "放烟花",
       "category": "手工节日",
@@ -1003,6 +1099,22 @@
       "category": "魔法特效",
       "sources": {
         "webp": "spritesheet/星星精灵现世.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "是啊，吃什么",
+      "name": "是啊，吃什么",
+      "category": "碎碎念",
+      "sources": {
+        "webp": "spritesheet/是啊，吃什么.webp"
       },
       "spritesheet": {
         "frameWidth": 640,
@@ -1254,6 +1366,22 @@
       }
     },
     {
+      "id": "穿针乞巧",
+      "name": "穿针乞巧",
+      "category": "手工节日",
+      "sources": {
+        "webp": "spritesheet/穿针乞巧.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
       "id": "舞狮头",
       "name": "舞狮头",
       "category": "手工节日",
@@ -1451,6 +1579,22 @@
       "category": "工作状态",
       "sources": {
         "webp": "spritesheet/轻快记录.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      }
+    },
+    {
+      "id": "骑木马",
+      "name": "骑木马",
+      "category": "玩耍",
+      "sources": {
+        "webp": "spritesheet/骑木马.webp"
       },
       "spritesheet": {
         "frameWidth": 640,

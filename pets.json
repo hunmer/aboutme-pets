@@ -32,6 +32,14 @@
       "cover": "pets/claude/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/claude/manifest.json",
       "actions": "pets/claude/actions.json"
+    },
+    {
+      "id": "gemini-pet",
+      "name": "Gemini 动作包",
+      "description": "2026-11 Gemini 生成批次（猫耳娘版），91 个透明 WebP 精灵图动作（待机、点击回应、玩耍、吃喝、节日、工作状态等）。",
+      "cover": "pets/gemini/spritesheet/待机呼吸休闲.webp",
+      "manifest": "pets/gemini/manifest.json",
+      "actions": "pets/gemini/manifest.json"
     }
   ]
 }

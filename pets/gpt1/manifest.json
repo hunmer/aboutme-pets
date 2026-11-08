@@ -19,7 +19,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地左转奔跑",
@@ -42,7 +43,8 @@
           76,
           1.5
         ]
-      ]
+      ],
+      "facing": "left"
     },
     {
       "id": "被鼠标拖拽悬空反馈",
@@ -58,7 +60,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     }
   ],
   "metadata": {

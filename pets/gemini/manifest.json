@@ -19,7 +19,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "螃蟹走路",
@@ -42,7 +43,8 @@
           89,
           1.0
         ]
-      ]
+      ],
+      "facing": "left"
     },
     {
       "id": "被鼠标拖拽悬空反馈",
@@ -58,7 +60,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     }
   ],
   "metadata": {

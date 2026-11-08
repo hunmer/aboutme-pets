@@ -16,7 +16,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "下五子棋",
@@ -32,7 +33,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "东张西望",
@@ -48,7 +50,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "中秋赏月吃月饼",
@@ -64,7 +67,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "优雅女仆舞",
@@ -80,7 +84,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "余额-分文不剩",
@@ -96,7 +101,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "余额-数金皱眉",
@@ -112,7 +118,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "余额-袋空如洗",
@@ -128,7 +135,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "余额-金袋叮当",
@@ -144,7 +152,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "余额-钱袋如常",
@@ -160,7 +169,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "余额-钱袋满溢",
@@ -176,7 +186,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "偷吃零食被抓住",
@@ -192,7 +203,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "写代码",
@@ -208,7 +220,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "写福字",
@@ -224,7 +237,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "凭空生花",
@@ -240,7 +254,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "动物环绕",
@@ -256,7 +271,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地专心玩魔方",
@@ -272,7 +288,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地小憩沉眠",
@@ -288,7 +305,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地左转奔跑",
@@ -328,7 +346,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地漂浮踏步",
@@ -368,7 +387,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地蹲下玩玩具汽车",
@@ -384,7 +404,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地重力下蹲压缩",
@@ -400,7 +421,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "变鸽子",
@@ -416,7 +438,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "可爱宅舞",
@@ -432,7 +455,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃Token",
@@ -448,7 +472,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃冰淇淋融化",
@@ -464,7 +489,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃午餐",
@@ -480,7 +506,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃大闸蟹",
@@ -496,7 +523,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃年糕",
@@ -512,7 +540,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃早餐",
@@ -528,7 +557,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃晚餐",
@@ -544,7 +574,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃汤圆",
@@ -560,7 +591,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃白饭",
@@ -576,7 +608,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃粽子",
@@ -592,7 +625,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃糖葫芦",
@@ -608,7 +642,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃腊八粥",
@@ -624,7 +659,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃西瓜",
@@ -640,7 +676,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃重阳糕",
@@ -656,7 +693,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃长寿面",
@@ -672,7 +710,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃青团",
@@ -688,7 +727,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吃饺子",
@@ -704,7 +744,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吹气球",
@@ -720,7 +761,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吹笛子",
@@ -736,7 +778,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "哈欠连天",
@@ -752,7 +795,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "大口吃零食",
@@ -768,7 +812,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "女仆屈膝礼仪",
@@ -784,7 +829,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "小幅度原地360度旋转展示",
@@ -800,7 +846,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "小提琴演奏",
@@ -816,7 +863,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作状态-原地踱步张望",
@@ -832,7 +880,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作状态-垂头叹气冒汗",
@@ -848,7 +897,8 @@
         "rows": 8,
         "frameCount": 59,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作状态-忙碌点按",
@@ -864,7 +914,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作状态-思考冒泡",
@@ -880,7 +931,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作状态-清点归档",
@@ -896,7 +948,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作状态-雀跃庆祝",
@@ -912,7 +965,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "待机呼吸休闲",
@@ -928,7 +982,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "悠闲哼歌",
@@ -944,7 +999,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "扑克魔术",
@@ -960,7 +1016,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打瞌睡被惊醒",
@@ -976,7 +1033,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "抽陀螺",
@@ -992,7 +1050,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "插茱萸赏菊",
@@ -1008,7 +1067,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "摇扇纳凉",
@@ -1024,7 +1084,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "撸猫",
@@ -1040,7 +1101,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "收红包",
@@ -1056,7 +1118,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "放孔明灯",
@@ -1072,7 +1135,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "放河灯",
@@ -1088,7 +1152,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "放烟花",
@@ -1104,7 +1169,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "整体换装试色",
@@ -1120,7 +1186,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "是啊，吃什么",
@@ -1136,7 +1203,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "晨间刷牙",
@@ -1152,7 +1220,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "涮火锅",
@@ -1168,7 +1237,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "深度思考碎碎念",
@@ -1184,7 +1254,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "点击回应-傲娇生气",
@@ -1200,7 +1271,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "点击回应-元气挥手",
@@ -1216,7 +1288,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "点击回应-害羞惊讶",
@@ -1232,7 +1305,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "点击回应-开心跃动",
@@ -1248,7 +1322,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "点击回应-挠痒咯咯笑",
@@ -1264,7 +1339,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "照镜子",
@@ -1280,7 +1356,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "玩水枪",
@@ -1296,7 +1373,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "玩游戏气急败坏",
@@ -1312,7 +1390,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "用鲸鱼尾巴拍打地面",
@@ -1328,7 +1407,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "碎碎念-发呆碎碎念",
@@ -1344,7 +1424,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "碎碎念-对屏碎碎念",
@@ -1360,7 +1441,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "碎碎念-擦桌碎碎念",
@@ -1376,7 +1458,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "穿针乞巧",
@@ -1392,7 +1475,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "舞狮头",
@@ -1408,7 +1492,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "荡秋千",
@@ -1424,7 +1509,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "萌化小幽灵",
@@ -1440,7 +1526,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "蓝鲸现世",
@@ -1456,7 +1543,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "蝴蝶蜜蜂环绕头顶开花",
@@ -1472,7 +1560,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "螃蟹走路",
@@ -1512,7 +1601,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "被落叶淹没",
@@ -1528,7 +1618,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "被鼠标拖拽悬空反馈",
@@ -1544,7 +1635,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "装点圣诞树",
@@ -1560,7 +1652,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "讨糖南瓜灯",
@@ -1576,7 +1669,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "超大伸懒腰",
@@ -1592,7 +1686,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "轻快摇摆舞",
@@ -1608,7 +1703,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "轻快记录",
@@ -1624,7 +1720,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "鲸鱼吐泡泡特效",
@@ -1640,7 +1737,8 @@
         "rows": 15,
         "frameCount": 120,
         "fps": 12
-      }
+      },
+      "facing": "left"
     }
   ]
 }

@@ -16,7 +16,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "举哑铃弯举",
@@ -32,7 +33,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "举杯敬酒",
@@ -48,7 +50,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "举糖葫芦",
@@ -64,7 +67,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "举荧光棒应援",
@@ -80,7 +84,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "交响乐指挥",
@@ -96,7 +101,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "侧身举相机拍别人",
@@ -112,7 +118,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "保安举金属探测仪",
@@ -128,7 +135,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "写毛笔字",
@@ -144,7 +152,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "冰箱翻吃的",
@@ -160,7 +169,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "切蛋糕",
@@ -176,7 +186,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "刷牙",
@@ -192,7 +203,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "剥橘子",
@@ -208,7 +220,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "剪刘海",
@@ -224,7 +237,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "剪指甲",
@@ -240,7 +254,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "包饺子",
@@ -256,7 +271,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "医生听诊",
@@ -272,7 +288,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "单脚闭眼平衡",
@@ -288,7 +305,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "压腿拉伸",
@@ -304,7 +322,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地划桨",
@@ -320,7 +339,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "原地打羽毛球",
@@ -336,7 +356,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "厨师抛饼",
@@ -352,7 +373,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "变戏法撒纸钱",
@@ -368,7 +390,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "叠衣服",
@@ -384,7 +407,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吸尘器吸地",
@@ -400,7 +424,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吹泡泡",
@@ -416,7 +441,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吹泡泡糖",
@@ -432,7 +458,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "吹长笛",
@@ -448,7 +475,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "唱歌-清唱",
@@ -464,7 +492,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "图书管理员嘘",
@@ -480,7 +509,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "堆雪人",
@@ -496,7 +526,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "宇航员行走",
@@ -512,7 +543,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "害羞捂脸偷看",
@@ -528,7 +560,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "尴尬抠手指",
@@ -544,7 +577,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "工作加班",
@@ -561,7 +595,8 @@
         "frameCount": 360,
         "fps": 12
       },
-      "audio": "audio/工作加班.m4a"
+      "audio": "audio/工作加班.m4a",
+      "facing": "left"
     },
     {
       "id": "平板支撑",
@@ -577,7 +612,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "开合跳",
@@ -593,7 +629,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "弹尤克里里",
@@ -609,7 +646,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "弹钢琴",
@@ -625,7 +663,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "得意炫耀转圈",
@@ -641,7 +680,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "心疼捂胸口",
@@ -657,7 +697,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "惊讶下巴掉",
@@ -673,7 +714,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "感动抹泪",
@@ -689,7 +731,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "手冲咖啡",
@@ -705,7 +748,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "手摇磨咖啡",
@@ -721,7 +765,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "扎马尾",
@@ -737,7 +782,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打主机游戏",
@@ -753,7 +799,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打乒乓球",
@@ -769,7 +816,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打嗝不停",
@@ -785,7 +833,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打太极拳",
@@ -801,7 +850,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打快板",
@@ -817,7 +867,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打滚-原地",
@@ -833,7 +884,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打电话汇报",
@@ -849,7 +901,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "打雪仗",
@@ -865,7 +918,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "抖空竹",
@@ -881,7 +935,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "折纸飞机",
@@ -897,7 +952,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "折纸鹤",
@@ -913,7 +969,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "护士量血压",
@@ -929,7 +986,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "拆礼物",
@@ -945,7 +1003,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "拉小提琴",
@@ -961,7 +1020,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "拍手鼓",
@@ -977,7 +1037,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "拧干湿抹布",
@@ -993,7 +1054,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "拼拼图",
@@ -1009,7 +1071,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "挂彩旗",
@@ -1025,7 +1088,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "挂灯笼",
@@ -1041,7 +1105,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "指挥合唱",
@@ -1057,7 +1122,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "挤番茄酱",
@@ -1073,7 +1139,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "捏面人",
@@ -1089,7 +1156,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "换装侦探服思考",
@@ -1105,7 +1173,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "换装浴袍",
@@ -1121,7 +1190,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "掏耳朵",
@@ -1137,7 +1207,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "掰巧克力",
@@ -1153,7 +1224,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "搭帐篷",
@@ -1169,7 +1241,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "搭积木",
@@ -1185,7 +1258,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "摄影师打光",
@@ -1201,7 +1275,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "摇沙锤",
@@ -1217,7 +1292,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "摇铃铛报喜",
@@ -1233,7 +1309,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "摘花送镜头",
@@ -1249,7 +1326,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "撒盐调味",
@@ -1265,7 +1343,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "撒花瓣",
@@ -1281,7 +1360,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "擀饺子皮",
@@ -1297,7 +1377,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "擦窗户",
@@ -1313,7 +1394,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "收拾书桌",
@@ -1329,7 +1411,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "收纳行李箱",
@@ -1345,7 +1428,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "放礼花筒",
@@ -1361,7 +1445,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "放风筝",
@@ -1377,7 +1462,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "放飞纸飞机",
@@ -1393,7 +1479,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "敲木琴",
@@ -1409,7 +1496,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "敲木鱼祈福",
@@ -1425,7 +1513,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "敲锣打鼓拜年",
@@ -1441,7 +1530,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "整理鞋柜",
@@ -1457,7 +1547,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "敷面膜",
@@ -1473,7 +1564,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "无语扶额",
@@ -1489,7 +1581,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "服务生托盘",
@@ -1505,7 +1598,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "木匠锯木头",
@@ -1521,7 +1615,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "梳理鲸鱼尾巴",
@@ -1537,7 +1632,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "检票打孔",
@@ -1553,7 +1649,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "水彩作画",
@@ -1569,7 +1666,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "沙发打瞌睡",
@@ -1585,7 +1683,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "洗碗",
@@ -1601,7 +1700,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "洗脸",
@@ -1617,7 +1717,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "涂口红",
@@ -1633,7 +1734,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "消防员持水枪",
@@ -1649,7 +1751,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "深蹲举杠铃",
@@ -1665,7 +1768,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "滑雪",
@@ -1681,7 +1785,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "滴眼药水",
@@ -1697,7 +1802,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "潜水比手势",
@@ -1713,7 +1819,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "点许愿灯",
@@ -1729,7 +1836,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "烤饼干",
@@ -1745,7 +1853,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "煮泡面",
@@ -1761,7 +1870,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "熨衣服",
@@ -1777,7 +1887,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "熬夜刷手机",
@@ -1794,7 +1905,8 @@
         "frameCount": 360,
         "fps": 12
       },
-      "audio": "audio/熬夜刷手机.m4a"
+      "audio": "audio/熬夜刷手机.m4a",
+      "facing": "left"
     },
     {
       "id": "狂喜原地跳",
@@ -1810,7 +1922,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "理发师剪发",
@@ -1826,7 +1939,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "瑜伽树式",
@@ -1842,7 +1956,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "生气鼓腮跺脚",
@@ -1858,7 +1973,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "甩拉面",
@@ -1874,7 +1990,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "画家调色",
@@ -1890,7 +2007,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "看恐怖片捂眼",
@@ -1906,7 +2024,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "站着晃神打瞌睡",
@@ -1922,7 +2041,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "系围裙",
@@ -1938,7 +2058,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "紧张搓手抖",
@@ -1954,7 +2075,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "织毛衣",
@@ -1970,7 +2092,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "绸带舞",
@@ -1986,7 +2109,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "缝扣子",
@@ -2002,7 +2126,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "耍流星锤",
@@ -2018,7 +2143,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "脚麻了",
@@ -2034,7 +2160,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "舔冰淇淋球",
@@ -2050,7 +2177,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "舞狮",
@@ -2066,7 +2194,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "花艺师包花",
@@ -2082,7 +2211,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "蛋糕裱花",
@@ -2098,7 +2228,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "衣服标签刺痒",
@@ -2114,7 +2245,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "袖口太长",
@@ -2130,7 +2262,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "袜子破洞",
@@ -2146,7 +2279,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "被阳光晃眼",
@@ -2162,7 +2296,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "被雨淋",
@@ -2178,7 +2313,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "被风吹跑帽子",
@@ -2194,7 +2330,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "观星指认",
@@ -2210,7 +2347,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "警察开罚单",
@@ -2226,7 +2364,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "贴春联",
@@ -2242,7 +2381,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "跳绳-减肥",
@@ -2258,7 +2398,8 @@
         "rows": 45,
         "frameCount": 360,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "跳芭蕾",
@@ -2274,7 +2415,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "跳街舞",
@@ -2290,7 +2432,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "踢毽子",
@@ -2306,7 +2449,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "踢踏舞",
@@ -2322,7 +2466,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "踩到香蕉皮",
@@ -2338,7 +2483,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "踩高跷",
@@ -2354,7 +2500,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "踮脚换灯泡",
@@ -2370,7 +2517,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "蹦迪-戴墨镜",
@@ -2386,7 +2534,8 @@
         "rows": 45,
         "frameCount": 360,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "转呼啦圈",
@@ -2402,7 +2551,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "转魔方",
@@ -2418,7 +2568,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "递包裹",
@@ -2434,7 +2585,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "递药和水",
@@ -2450,7 +2602,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "逗狗",
@@ -2466,7 +2619,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "逗猫",
@@ -2482,7 +2636,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "逗蝴蝶",
@@ -2498,7 +2653,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "量体温",
@@ -2514,7 +2670,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "钉钉子挂画",
@@ -2530,7 +2687,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "钓鱼",
@@ -2546,7 +2704,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "铺床单",
@@ -2562,7 +2721,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "陶艺拉坯",
@@ -2578,7 +2738,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "雪克杯摇奶茶",
@@ -2594,7 +2755,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "鞋带松了",
@@ -2610,7 +2772,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "风扇前啊啊叫",
@@ -2626,7 +2789,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "骑木马",
@@ -2642,7 +2806,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "魔术师变出花",
@@ -2658,7 +2823,8 @@
         "rows": 23,
         "frameCount": 180,
         "fps": 12
-      }
+      },
+      "facing": "left"
     },
     {
       "id": "走路",
@@ -2681,7 +2847,8 @@
           94,
           1.0
         ]
-      ]
+      ],
+      "facing": "left"
     }
   ]
 }

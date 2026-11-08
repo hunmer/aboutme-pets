@@ -7,7 +7,8 @@
       "description": "内置 WebP 精灵图桌宠，101 个透明动作，可按需下载扩展动作。",
       "cover": "pets/dsh/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/dsh/manifest.json",
-      "actions": "pets/dsh/actions.json"
+      "actions": "pets/dsh/actions.json",
+      "avatar": "pets/dsh/avatar.webp"
     },
     {
       "id": "dsh1-pet",
@@ -15,7 +16,8 @@
       "description": "2026-11 第二批动作，166 个透明 WebP 精灵图，9 个分类（日常起居、吃喝、运动健身、才艺表演、手工节日、工作职业、娱乐休闲、情绪反应、换装造型）。",
       "cover": "pets/dsh1/spritesheet/站着晃神打瞌睡.webp",
       "manifest": "pets/dsh1/manifest.json",
-      "actions": "pets/dsh1/actions.json"
+      "actions": "pets/dsh1/actions.json",
+      "avatar": "pets/dsh1/avatar.webp"
     },
     {
       "id": "gpt-pet",
@@ -23,7 +25,17 @@
       "description": "2026-11 GPT 生成批次，193 个透明 WebP 精灵图动作（待机、情绪、礼仪、运动、乐器等）。",
       "cover": "pets/gpt/spritesheet/待机呼吸起伏.webp",
       "manifest": "pets/gpt/manifest.json",
-      "actions": "pets/gpt/actions.json"
+      "actions": "pets/gpt/actions.json",
+      "avatar": "pets/gpt/avatar.webp"
+    },
+    {
+      "id": "gpt1-pet",
+      "name": "GPT 动作包·新批次",
+      "description": "2026-11 GPT 生成第二批次，92 个透明 WebP 精灵图动作（待机、点击回应、吃喝、节日、工作状态、余额、碎碎念等）。",
+      "cover": "pets/gpt1/spritesheet/待机呼吸休闲.webp",
+      "manifest": "pets/gpt1/manifest.json",
+      "actions": "pets/gpt1/manifest.json",
+      "avatar": "pets/gpt1/avatar.webp"
     },
     {
       "id": "claude-pet",
@@ -31,7 +43,8 @@
       "description": "2026-11 Claude 生成批次，166 个透明 WebP 精灵图动作（待机、点击回应、玩耍、吃喝、节日、手工、乐器、工作状态等）。",
       "cover": "pets/claude/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/claude/manifest.json",
-      "actions": "pets/claude/actions.json"
+      "actions": "pets/claude/actions.json",
+      "avatar": "pets/claude/avatar.webp"
     },
     {
       "id": "gemini-pet",
@@ -39,7 +52,8 @@
       "description": "2026-11 Gemini 生成批次（猫耳娘版），100 个透明 WebP 精灵图动作（待机、点击回应、玩耍、吃喝、节日、工作状态等）。",
       "cover": "pets/gemini/spritesheet/待机呼吸休闲.webp",
       "manifest": "pets/gemini/manifest.json",
-      "actions": "pets/gemini/manifest.json"
+      "actions": "pets/gemini/manifest.json",
+      "avatar": "pets/gemini/avatar.webp"
     }
   ]
 }

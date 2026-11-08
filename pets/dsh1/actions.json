@@ -2659,6 +2659,29 @@
         "frameCount": 180,
         "fps": 12
       }
+    },
+    {
+      "id": "走路",
+      "name": "走路",
+      "category": "未分类",
+      "sources": {
+        "webp": "spritesheet/走路.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      },
+      "moving": [
+        [
+          15,
+          94,
+          1.0
+        ]
+      ]
     }
   ]
 }

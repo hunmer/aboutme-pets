@@ -22,20 +22,27 @@
       }
     },
     {
-      "id": "宇航员行走",
-      "name": "宇航员行走",
-      "category": "工作职业",
+      "id": "走路",
+      "name": "走路",
+      "category": "未分类",
       "sources": {
-        "webp": "spritesheet/宇航员行走.webp"
+        "webp": "spritesheet/走路.webp"
       },
       "spritesheet": {
         "frameWidth": 640,
         "frameHeight": 360,
         "columns": 8,
-        "rows": 23,
-        "frameCount": 180,
+        "rows": 15,
+        "frameCount": 120,
         "fps": 12
-      }
+      },
+      "moving": [
+        [
+          15,
+          94,
+          1.0
+        ]
+      ]
     }
   ],
   "metadata": {
@@ -56,14 +63,7 @@
       "encoder": "cwebp -m 4 -mt",
       "alphaHandling": "Source alpha preserved via RGBA tiles; alpha-free sources encode fully opaque and libwebp omits the alpha plane",
       "audio": "First audio stream extracted to audio/<id>.m4a (AAC; stream copy when the source is already AAC, otherwise 192k re-encode); a silent source retains an existing m4a from an earlier export of the same performance (json AudioNote); no manifest audio reference only when neither exists",
-      "script": "convert_video_pet_spritesheet.py",
-      "maxImageBytesOverrides": {
-        "工作加班": 3000000,
-        "熬夜刷手机": 3000000,
-        "跳绳-减肥": 3000000,
-        "蹦迪-戴墨镜": 3000000
-      },
-      "maxImageBytesNote": "maxImageBytes is the default; actions listed in maxImageBytesOverrides use their own (longer source clips keep more frames and therefore need more bytes)"
+      "script": "convert_video_pet_spritesheet.py"
     },
     "packageNote": "第二批动作（166 个，2026-11 批次）：15 秒源 180 帧 / 8x23，30 秒源 360 帧 / 8x45；源 webm 无音轨，仅 工作加班、熬夜刷手机 沿用旧版 m4a",
     "license": "素材禁止商用；二创在公开渠道须署名上游仓库（见 NOTICE.txt）",
@@ -93,12 +93,33 @@
     "strategy": "random"
   },
   "movement": {
-    "leftAnimationId": "宇航员行走",
-    "rightAnimationId": "宇航员行走",
+    "leftAnimationId": "走路",
+    "rightAnimationId": "走路",
     "dragAnimationId": null,
     "speed": 40,
     "minIdleSeconds": 10,
     "maxIdleSeconds": 10
   },
-  "regions": []
+  "regions": [
+    {
+      "id": "head",
+      "name": "head",
+      "x": 0.377145571278826,
+      "y": 0.1336769159096203,
+      "width": 0.2153187237945493,
+      "height": 0.39244118332168654,
+      "enabled": true,
+      "priority": 0
+    },
+    {
+      "id": "body",
+      "name": "body",
+      "x": 0.3785377358490566,
+      "y": 0.5364983694386211,
+      "width": 0.2153187237945493,
+      "height": 0.33713312368972737,
+      "enabled": true,
+      "priority": 1
+    }
+  ]
 }

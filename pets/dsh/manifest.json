@@ -127,7 +127,28 @@
     "minIdleSeconds": 10,
     "maxIdleSeconds": 10
   },
-  "regions": [],
+  "regions": [
+    {
+      "id": "head",
+      "name": "head",
+      "x": 0.384573178721174,
+      "y": 0.25088807360819937,
+      "width": 0.21376277515723263,
+      "height": 0.36160610295830425,
+      "enabled": true,
+      "priority": 0
+    },
+    {
+      "id": "body",
+      "name": "body",
+      "x": 0.3895440251572327,
+      "y": 0.6212730025623108,
+      "width": 0.20464819182389943,
+      "height": 0.2985237596086653,
+      "enabled": true,
+      "priority": 1
+    }
+  ],
   "metadata": {
     "repository": "https://github.com/PC2005-cloud/dsh-pet",
     "commit": "b78e3fcf92ac78cee569aed7cc27eeb2a8d51757",

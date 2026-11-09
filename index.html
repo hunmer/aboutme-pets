@@ -267,6 +267,14 @@
   };
 
   const $ = (id) => document.getElementById(id);
+
+  // 素材（webp/audio/avatar）统一从 main 分支的 raw 地址加载；gh-pages 分支只托管页面与 JSON
+  const ASSET_BASE = "https://raw.githubusercontent.com/hunmer/aboutme-pets/main/";
+  const assetUrl = (p) => {
+    if (!p) return p;
+    const norm = String(p).replace(/\\/g, "/");
+    return norm.startsWith("pets/") ? ASSET_BASE + norm : norm;
+  };
   const view = $("view");
   const ctx = view.getContext("2d");
   const viewport = $("viewport");
@@ -290,7 +298,7 @@
       btn.className = "pet";
       btn.setAttribute("aria-current", String(pet.id === state.pet.id));
       btn.innerHTML =
-        (pet.avatar ? `<img class="avatar" src="${escapeHtml(pet.avatar)}" alt="">` : "") +
+        (pet.avatar ? `<img class="avatar" src="${escapeHtml(assetUrl(pet.avatar))}" alt="">` : "") +
         `<span class="texts"><span>${escapeHtml(pet.name)}</span><small>${pet.totalActions} 个动作</small></span>`;
       btn.addEventListener("click", () => selectPet(index));
       nav.appendChild(btn);
@@ -403,7 +411,7 @@
 
     stopAudio();
     if (action.audio) {
-      state.audio = new Audio(action.audio);
+      state.audio = new Audio(assetUrl(action.audio));
       state.audio.volume = 0.8;
       state.audio.play().catch(() => {});
     }
@@ -425,7 +433,8 @@
       showLoading(false);
       showError(`加载失败：${action.webp}`);
     };
-    img.src = action.webp;
+    img.crossOrigin = "anonymous";
+    img.src = assetUrl(action.webp);
     renderCategories();
     requestAnimationFrame(() => {
       const selected = [...document.querySelectorAll(".chip")]
@@ -570,6 +579,7 @@
   function loadImg(src) {
     return new Promise((resolve, reject) => {
       const img = new Image();
+      img.crossOrigin = "anonymous";
       img.onload = () => resolve(img);
       img.onerror = () => reject(new Error(`加载失败：${src}`));
       img.src = src;
@@ -587,7 +597,7 @@
         const { action } = findAction(keys[i]);
         if (!action) continue;
         setStatus(`下载 WebP ${i + 1}/${keys.length}：${action.id}`);
-        const buf = new Uint8Array(await (await fetch(action.webp)).arrayBuffer());
+        const buf = new Uint8Array(await (await fetch(assetUrl(action.webp))).arrayBuffer());
         let name = keys[i].replace("/", "-") + ".webp";
         while (files[name]) name = name.replace(/(\.\w+)$/, `-$1`);
         files[name] = buf;
@@ -615,7 +625,7 @@
         const { action } = findAction(keys[i]);
         if (!action) continue;
         setStatus(`转换 WebM ${i + 1}/${keys.length}：${action.id}`);
-        const img = await loadImg(action.webp);
+        const img = await loadImg(assetUrl(action.webp));
         const canvas = document.createElement("canvas");
         canvas.width = action.frameWidth;
         canvas.height = action.frameHeight;

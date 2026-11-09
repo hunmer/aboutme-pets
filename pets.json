@@ -20,18 +20,10 @@
     {
       "id": "gpt-pet",
       "name": "GPT 动作包",
-      "description": "2026-11 GPT 生成批次，193 个透明 WebP 精灵图动作（待机、情绪、礼仪、运动、乐器等）。",
+      "description": "2026-11 GPT 生成第二批次，92 个透明 WebP 精灵图动作（待机、点击回应、吃喝、节日、工作状态、余额、碎碎念等）。",
       "cover": "pets/gpt/avatar.webp",
       "manifest": "pets/gpt/manifest.json",
       "actions": "pets/gpt/actions.json"
-    },
-    {
-      "id": "gpt1-pet",
-      "name": "GPT 动作包·新批次",
-      "description": "2026-11 GPT 生成第二批次，92 个透明 WebP 精灵图动作（待机、点击回应、吃喝、节日、工作状态、余额、碎碎念等）。",
-      "cover": "pets/gpt1/avatar.webp",
-      "manifest": "pets/gpt1/manifest.json",
-      "actions": "pets/gpt1/actions.json"
     },
     {
       "id": "claude-pet",

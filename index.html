@@ -17,6 +17,7 @@
   }
   * { box-sizing: border-box; }
   html, body { height: 100%; }
+  @supports (height: 100dvh) { html, body { height: 100dvh; } }
   body {
     margin: 0;
     font: 14px/1.5 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
@@ -157,10 +158,53 @@
   .chip.picked { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
   .btn[disabled] { opacity: .5; cursor: not-allowed; }
 
+  /* 平板 / 窄屏：上下布局，预览区在上 */
   @media (max-width: 860px) {
-    main { grid-template-columns: 1fr; grid-template-rows: minmax(280px, 1fr) minmax(220px, 40%); }
+    main { grid-template-columns: 1fr; grid-template-rows: auto minmax(200px, 45%); gap: 12px; padding: 12px 14px 14px; }
+    .stage-top { padding: 12px 14px 8px; }
+    .stage-top h1 { font-size: 17px; }
+    .viewport { min-height: 220px; margin: 0 14px; border-radius: 12px; }
+    .controls { padding: 10px 14px 14px; }
     .hint { display: none; }
+    .topbar { gap: 10px; padding: 10px 14px; }
+    .sidebar { min-height: 240px; }
   }
+
+  /* 手机：顶栏紧凑、触控友好的按钮与胶囊 */
+  @media (max-width: 560px) {
+    body { font-size: 14px; }
+    .topbar { padding: 8px 12px; gap: 8px; }
+    .brand { font-size: 13px; }
+    .pets { width: 100%; margin-left: 0; gap: 6px; }
+    .pet { padding: 6px 12px; border-radius: 999px; flex: 1; min-width: 0; align-items: center; }
+    .pet small { font-size: 10px; }
+
+    main { padding: 10px 12px 12px; gap: 10px; grid-template-rows: auto minmax(180px, 40%); }
+    .stage { border-radius: 14px; }
+    .stage-top { padding: 10px 12px 6px; gap: 8px; }
+    .stage-top h1 { font-size: 16px; }
+    .meta { font-size: 11px; }
+    .viewport { min-height: 180px; margin: 0 12px; }
+    .controls { padding: 8px 12px 12px; gap: 8px; }
+    .btn { padding: 9px 14px; border-radius: 10px; min-height: 38px; }
+    input[type="range"] { min-height: 36px; }
+    .frame { min-width: 60px; font-size: 12px; }
+
+    .sidebar { border-radius: 14px; min-height: 220px; }
+    .search-wrap { padding: 10px 12px 8px; }
+    #search { padding: 10px 12px; font-size: 16px; border-radius: 10px; }
+    .categories { padding: 6px 8px 14px; }
+    .chip { padding: 8px 12px; font-size: 13px; }
+    .cat > summary { padding: 10px 8px; }
+  }
+
+  /* 超矮横屏（如手机横放）：侧栏收窄为可滚动区域，避免挤压预览 */
+  @media (max-height: 480px) and (orientation: landscape) {
+    main { grid-template-rows: minmax(140px, 1fr) minmax(120px, 30%); gap: 8px; padding: 8px 10px 10px; }
+    .viewport { min-height: 140px; }
+    .controls { padding: 6px 12px 8px; }
+  }
+
 </style>
 </head>
 <body>

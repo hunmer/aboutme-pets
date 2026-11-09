@@ -533,7 +533,7 @@ def _process_video(src, out, a, quiet, dry, tag):
             for pass_no in (1, 2):
                 encode(encode_cmd(transp, _num(fps), a.crf, fmt, out,
                                   bitrate=bitrate, pass_no=pass_no,
-                                  passlog=log, speed=a.speed),
+                                  passlog=log, speed=a.speed, audio_src=src),
                        total=total, unit="f", label=f"encode {fmt} p{pass_no}",
                        quiet=quiet, dry_run=dry)
             if not dry:
@@ -556,7 +556,8 @@ def _process_video(src, out, a, quiet, dry, tag):
         else:
             say(f"\n▶ 3/3  encoding {fmt}  ({_num(fps)} fps, crf {a.crf})  →  {out}",
                 quiet)
-            encode(encode_cmd(transp, _num(fps), a.crf, fmt, out),
+            encode(encode_cmd(transp, _num(fps), a.crf, fmt, out,
+                              audio_src=src),
                    total=total, unit="f", label=f"encode {fmt}",
                    quiet=quiet, dry_run=dry)
 

@@ -331,8 +331,9 @@ class App(PreviewMixin, PipelineMixin, FramesMixin, tk.Tk):
 
     # ── Encode helper (shared) ────────────────────────────────────────────
     def _encode(self, frames_dir, fps, crf, fmt, outfile, log,
-                pattern="frame%04d.png", tag=""):
-        cmd = encode_cmd(frames_dir, fps, crf, fmt, outfile, pattern=pattern)
+                pattern="frame%04d.png", tag="", audio_src=None):
+        cmd = encode_cmd(frames_dir, fps, crf, fmt, outfile, pattern=pattern,
+                         audio_src=audio_src)
         return self._run_cmd(cmd, log, tag)
 
     # ── Stop ──────────────────────────────────────────────────────────────

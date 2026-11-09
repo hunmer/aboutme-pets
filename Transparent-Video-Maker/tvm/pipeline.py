@@ -500,7 +500,8 @@ class PipelineMixin:
         self._wlog(log, f"\n{tag}▶  STEP 3 — Encoding {self.out_format.get()}…\n",
                    "head")
         ok = self._encode(transp, fps, self.crf.get(),
-                          self.out_format.get(), outfile, log, tag=tag)
+                          self.out_format.get(), outfile, log, tag=tag,
+                          audio_src=video)
         if not ok:
             self._step_ui(2, "error"); return None
         self._step_ui(2, "done")

@@ -2,38 +2,33 @@
 
 Aboutme 宠物商店的目录与可下载动画资源。
 
+## 在线预览（GitHub Pages）
+
+<https://hunmer.github.io/aboutme-pets/>
+
+页面顶部切换角色包，左侧按 12fps 播放当前动作（空格暂停、`←`/`→` 逐帧、
+`↑`/`↓` 换动作、滑杆拖动），右侧按分类浏览 / 搜索全部 829 个动作，
+带音轨的动作会自动播放。
+
+## 已收录宠物
+
+| 角色 | 目录 | 动作数 | 来源 |
+| --- | --- | ---: | --- |
+| 蓝毛小女仆 | `pets/dsh` | 101 | 上游 [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet)，FFmpeg 转换为透明 WebP |
+| 蓝毛小女仆·新动作包 | `pets/dsh1` | 167 | 作者生成（2026-11 第二批，含 2 条动作音轨） |
+| GPT 动作包 | `pets/gpt` | 92 | 作者生成 |
+| Claude 动作包 | `pets/claude` | 166 | 作者生成（含 8 条动作音轨） |
+| Gemini 动作包（猫耳娘版） | `pets/gemini` | 100 | 作者生成（含 96 条动作音轨） |
+| Qwen 动作包 | `pets/qwen` | 106 | 作者生成（含 66 条动作音轨） |
+| GLM 动作包（蓝狐耳娘版） | `pets/glm` | 97 | 作者生成（含 AAC 音轨） |
+
+7 个角色包合计 **829** 个动作。除 `pets/dsh`（素材来自上游 dsh-pet 仓库）外，
+其余角色包的全部素材均为本仓库作者生成。
+
 ## 商店地址
 
 - 商店根：`https://raw.githubusercontent.com/hunmer/aboutme-pets/main/`
 - 目录入口：`pets.json`
-
-## 结构
-
-```
-pets.json                      商店目录（schemaVersion 1）
-pets/dsh/manifest.json         基础动作 manifest（5 个动作，与客户端内置包一致）
-pets/dsh/actions.json          动作列表（101 条，petId = dsh-pet）
-pets/dsh/spritesheet/          101 个透明 WebP 精灵图 + 101 份同名动作 JSON
-pets/dsh/NOTICE.txt            素材来源与许可说明
-pets/dsh/SOURCE-upstream.txt   上游仓库与固定提交
-pets/dsh/LICENSE-*.txt         上游 MIT 代码许可原文
-pets/dsh1/manifest.json        新动作包 manifest（166 个动作，id = dsh1-pet）
-pets/dsh1/actions.json         动作列表（166 条，petId = dsh1-pet）
-pets/dsh1/spritesheet/         166 个透明 WebP 精灵图 + 166 份同名动作 JSON
-pets/dsh1/audio/               2 条沿用旧版的动作音轨（工作加班、熬夜刷手机）
-pets/dsh1/NOTICE.txt           第二批素材来源与许可说明
-pets/dsh1/BATCH-source.txt     第二批 166 个动作的来源与转换记录
-convert_video_pet_spritesheet.ps1  WebM → 透明 WebP 精灵图转换脚本（PowerShell 7）
-convert_video_pet_spritesheet.py   同一脚本的 Python 实现（macOS/Linux，多进程，默认 1.5MB 上限）
-spritesheet_to_video_pet.py        反向脚本：透明 WebP 精灵图 + JSON 元数据 → 透明 WebM
-index.html                    预览页（左预览 / 右分类 / 顶部角色切换，GitHub Pages 入口）
-preview.json                   预览清单：宠物 → 分类 → 动作（含精灵图规格与音轨路径）
-build_preview.py               读取 pets.json 与各包 actions.json 生成 preview.json
-Transparent-Video-Maker/       视频去绿幕工具（Tkinter GUI + ffmpeg/rembg），用于去 AI 视频的绿幕
-```
-
-所有资源均为相对路径，客户端按同源规则解析；封面使用现有待机精灵图
-`pets/dsh/spritesheet/待机呼吸休闲.webp`。
 
 ## 来源与许可
 
@@ -43,27 +38,6 @@ pets/dsh 素材来自 [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh
 上游两份 LICENSE 均为代码 MIT，不覆盖素材限制。转换脚本为本仓库根目录的
 `convert_video_pet_spritesheet.ps1`，资源规格见 `about-me` 仓库
 `assets/live2d/video/dsh_pet/README.md`。
-
-## 在线预览（GitHub Pages）
-
-<https://hunmer.github.io/aboutme-pets/>
-
-## 本地预览
-
-`index.html` 直接读 `preview.json`（`file://` fallback 到内联副本），无需构建：
-
-```bash
-python3 -m http.server 8901   # 在仓库根目录启动，浏览器打开 /
-```
-
-页面顶部切换角色包，左侧按 12fps 播放当前动作（空格暂停、`←`/`→` 逐帧、
-`↑`/`↓` 换动作、滑杆拖动），右侧按分类浏览 / 搜索 267 个动作，带音轨的动作会自动播放。
-
-动作增删后重新生成清单（同时把清单内联进 HTML）：
-
-```bash
-python3 build_preview.py
-```
 
 ## 重新导出精灵图
 

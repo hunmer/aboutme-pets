@@ -96,7 +96,7 @@ def build_pet(pet):
         "name": pet["name"],
         "description": pet.get("description", ""),
         "cover": pet.get("cover"),
-        "avatar": pet.get("avatar"),
+        "avatar": pet.get("avatar") or pet.get("cover"),
         "idleAnimationId": None,
         "actionsFile": actions_file,
         "totalActions": len(actions),

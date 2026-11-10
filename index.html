@@ -44,11 +44,22 @@
   }
   .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; letter-spacing: .02em; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-  .pets { display: flex; gap: 8px; width: 100%; flex-wrap: wrap; }
+  .pets {
+    display: flex; gap: 8px; width: 100%;
+    flex-wrap: nowrap; overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; scrollbar-color: #d8d0bd transparent;
+    padding: 2px 2px 6px;
+  }
+  .pets::-webkit-scrollbar { height: 5px; }
+  .pets::-webkit-scrollbar-thumb { background: #d8d0bd; border-radius: 999px; }
+  .pets::-webkit-scrollbar-track { background: transparent; }
   .pet {
     border: 1px solid var(--line); background: var(--paper); color: var(--ink);
     padding: 8px 14px; border-radius: 999px; cursor: pointer; font: inherit;
     display: flex; flex-direction: row; align-items: center; gap: 10px; line-height: 1.25;
+    flex: none; white-space: nowrap;
     transition: .15s ease;
   }
   .pet small { color: var(--ink-soft); font-size: 11px; }
@@ -56,12 +67,25 @@
     width: 30px; height: 30px; border-radius: 50%; object-fit: cover;
     border: 1px solid var(--line); background: #fff; flex: none;
   }
-  .pet .texts { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
+  .pet .texts { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; white-space: nowrap; }
   .pet[aria-current="true"] .avatar { border-color: rgba(255,255,255,.7); }
   .pet:hover { border-color: #c9bfa7; transform: translateY(-1px); }
   .pet[aria-current="true"] { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: var(--shadow); }
   .pet[aria-current="true"] small { color: #c8d0e6; }
   .hint { color: var(--ink-soft); font-size: 12px; }
+
+  /* 移动端小屏：可拖拽悬浮精灵（替代预览舞台）
+     命中判定按精灵不透明像素自绘（document 级监听），其余区域鼠标/触摸穿透 */
+  .mobile-pet {
+    position: fixed; z-index: 60;
+    right: 14px; bottom: 18px;
+    width: 300px; height: 400px;
+    display: none;
+    pointer-events: none;
+    user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+    filter: drop-shadow(0 6px 14px rgba(27, 36, 64, .25));
+  }
+  .mobile-pet canvas { width: 100%; height: 100%; display: block; }
 
   /* 主体：左预览 右列表 */
   main {
@@ -176,11 +200,12 @@
     .topbar { padding: 8px 12px; gap: 8px; }
     .brand { font-size: 13px; }
     .pets { width: 100%; margin-left: 0; gap: 6px; }
-    .pet { padding: 6px 12px; border-radius: 999px; flex: 1; min-width: 0; align-items: center; }
+    .pet { padding: 6px 12px; border-radius: 999px; flex: none; align-items: center; }
     .pet small { font-size: 10px; }
 
-    main { padding: 10px 12px 12px; gap: 10px; grid-template-rows: auto minmax(180px, 40%); }
-    .stage { border-radius: 14px; }
+    main { padding: 10px 12px 12px; gap: 10px; grid-template-rows: minmax(0, 1fr); }
+    .stage { display: none; }
+    .mobile-pet { display: block; }
     .stage-top { padding: 10px 12px 6px; gap: 8px; }
     .stage-top h1 { font-size: 16px; }
     .meta { font-size: 11px; }
@@ -246,6 +271,10 @@
   </aside>
 </main>
 
+<div class="mobile-pet" id="mobilePet" role="button" aria-label="悬浮宠物：拖拽移动，点击重播当前动作">
+  <canvas id="mobilePetCanvas"></canvas>
+</div>
+
 <script>
 (() => {
   "use strict";
@@ -289,8 +318,9 @@
       btn.type = "button";
       btn.className = "pet";
       btn.setAttribute("aria-current", String(pet.id === state.pet.id));
+      const avatar = pet.avatar || pet.cover;
       btn.innerHTML =
-        (pet.avatar ? `<img class="avatar" src="${escapeHtml(pet.avatar)}" alt="">` : "") +
+        (avatar ? `<img class="avatar" src="${escapeHtml(avatar)}" alt="">` : "") +
         `<span class="texts"><span>${escapeHtml(pet.name)}</span><small>${pet.totalActions} 个动作</small></span>`;
       btn.addEventListener("click", () => selectPet(index));
       nav.appendChild(btn);
@@ -455,6 +485,7 @@
         state.lastTs = 0;
       }
       draw();
+      drawMobilePet();
     };
     state.raf = requestAnimationFrame(tick);
   }
@@ -496,6 +527,163 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     draw();
   }
+
+  // ---------- 移动端悬浮精灵 ----------
+  const mobilePet = $("mobilePet");
+  const mpetView = $("mobilePetCanvas");
+  const mpetCtx = mpetView.getContext("2d");
+  const mobileMQ = window.matchMedia("(max-width: 560px)");
+  let mpetDpr = 1;
+
+  function resizeMobilePet() {
+    mpetDpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = mobilePet.getBoundingClientRect();
+    mpetView.width = Math.max(1, Math.round(rect.width * mpetDpr));
+    mpetView.height = Math.max(1, Math.round(rect.height * mpetDpr));
+  }
+
+  function clampMobilePet() {
+    const rect = mobilePet.getBoundingClientRect();
+    if (!rect.width) return;
+    const left = Math.min(Math.max(rect.left, 0), Math.max(0, window.innerWidth - rect.width));
+    const top = Math.min(Math.max(rect.top, 0), Math.max(0, window.innerHeight - rect.height));
+    mobilePet.style.left = left + "px";
+    mobilePet.style.top = top + "px";
+    mobilePet.style.right = "auto";
+    mobilePet.style.bottom = "auto";
+  }
+
+  function drawMobilePet() {
+    const { action, img } = state;
+    if (!mobileMQ.matches || !action || !img) return;
+    const w = mpetView.width / mpetDpr;
+    const h = mpetView.height / mpetDpr;
+    if (!w || !h) return;
+    mpetCtx.clearRect(0, 0, w, h);
+    const scale = Math.min(w / action.frameWidth, h / action.frameHeight);
+    const dw = action.frameWidth * scale;
+    const dh = action.frameHeight * scale;
+    const columns = action.columns || 8;
+    const col = state.frame % columns;
+    const row = Math.floor(state.frame / columns);
+    mpetCtx.imageSmoothingQuality = "high";
+    mpetCtx.drawImage(
+      img,
+      col * action.frameWidth, row * action.frameHeight, action.frameWidth, action.frameHeight,
+      (w - dw) / 2, (h - dh) / 2, dw, dh
+    );
+  }
+
+  function replayLastAction() {
+    if (!state.action) return;
+    state.frame = 0;
+    state.playing = true;
+    state.lastTs = 0;
+    $("playBtn").textContent = "暂停";
+    $("scrub").value = 0;
+    stopAudio();
+    if (state.action.audio) {
+      state.audio = new Audio(state.action.audio);
+      state.audio.volume = 0.8;
+      state.audio.play().catch(() => {});
+    }
+    draw();
+    drawMobilePet();
+  }
+
+  // 交互：按精灵不透明像素命中；透明区域完全穿透（元素本身 pointer-events:none）
+  const HIT_ALPHA = 25;
+  let mpetDrag = null;
+  let mpetTapGuard = 0;
+
+  function spriteHitAt(clientX, clientY) {
+    if (!mobileMQ.matches || !state.action || !state.img) return false;
+    const rect = mobilePet.getBoundingClientRect();
+    if (!rect.width || !rect.height) return false;
+    const px = Math.floor((clientX - rect.left) / rect.width * mpetView.width);
+    const py = Math.floor((clientY - rect.top) / rect.height * mpetView.height);
+    if (px < 0 || py < 0 || px >= mpetView.width || py >= mpetView.height) return false;
+    try {
+      return mpetCtx.getImageData(px, py, 1, 1).data[3] > HIT_ALPHA;
+    } catch (_) {
+      return true; // 画布异常时退化为整块可交互
+    }
+  }
+
+  function movePetBy(dx, dy) {
+    const rect = mobilePet.getBoundingClientRect();
+    if (!rect.width) return;
+    mobilePet.style.left = Math.min(Math.max(rect.left + dx, 0), Math.max(0, window.innerWidth - rect.width)) + "px";
+    mobilePet.style.top = Math.min(Math.max(rect.top + dy, 0), Math.max(0, window.innerHeight - rect.height)) + "px";
+    mobilePet.style.right = "auto";
+    mobilePet.style.bottom = "auto";
+  }
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!mobileMQ.matches || mpetDrag) return;
+    if (!spriteHitAt(event.clientX, event.clientY)) return; // 透明区域：原样穿透
+    mpetDrag = { id: event.pointerId, x: event.clientX, y: event.clientY, moved: 0, at: performance.now() };
+    event.stopPropagation();
+    event.preventDefault();
+    if (event.pointerType === "mouse") document.body.style.cursor = "grabbing";
+  }, true);
+
+  document.addEventListener("pointermove", (event) => {
+    if (!mobileMQ.matches) return;
+    if (mpetDrag) {
+      if (event.pointerId !== mpetDrag.id) return;
+      const dx = event.clientX - mpetDrag.x;
+      const dy = event.clientY - mpetDrag.y;
+      mpetDrag.moved += Math.abs(dx) + Math.abs(dy);
+      mpetDrag.x = event.clientX;
+      mpetDrag.y = event.clientY;
+      movePetBy(dx, dy);
+      event.stopPropagation();
+      event.preventDefault();
+    } else if (event.pointerType === "mouse") {
+      document.body.style.cursor = spriteHitAt(event.clientX, event.clientY) ? "grab" : "";
+    }
+  }, true);
+
+  const endMpetDrag = (event, cancelled) => {
+    if (!mpetDrag || event.pointerId !== mpetDrag.id) return;
+    const tapped = !cancelled && mpetDrag.moved < 8 && performance.now() - mpetDrag.at < 600;
+    mpetDrag = null;
+    mpetTapGuard = performance.now();
+    document.body.style.cursor = "";
+    event.stopPropagation();
+    if (!cancelled) event.preventDefault();
+    if (tapped) replayLastAction(); // 点击精灵本体：重播最后选择的动作
+  };
+  document.addEventListener("pointerup", (event) => endMpetDrag(event, false), true);
+  document.addEventListener("pointercancel", (event) => endMpetDrag(event, true), true);
+
+  // 触摸落在精灵本体上时取消原生滚动/长按默认行为（pointerdown 的 preventDefault 不拦截滚动）
+  document.addEventListener("touchstart", (event) => {
+    if (!mobileMQ.matches || !event.touches.length) return;
+    if (spriteHitAt(event.touches[0].clientX, event.touches[0].clientY)) event.preventDefault();
+  }, { passive: false, capture: true });
+
+  // 消费掉精灵点击后浏览器可能补发的 click，避免落到下层元素
+  document.addEventListener("click", (event) => {
+    if (performance.now() - mpetTapGuard < 80) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }, true);
+
+  document.addEventListener("contextmenu", (event) => {
+    if (spriteHitAt(event.clientX, event.clientY)) event.preventDefault();
+  }, true);
+  if (mobileMQ.addEventListener) {
+    mobileMQ.addEventListener("change", () => {
+      resizeMobilePet();
+      clampMobilePet();
+      drawMobilePet();
+    });
+  }
+  window.addEventListener("resize", () => { if (mobileMQ.matches) clampMobilePet(); });
+  resizeMobilePet();
 
   // ---------- 交互 ----------
   function togglePlay() {

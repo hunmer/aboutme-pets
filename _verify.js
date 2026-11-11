@@ -169,12 +169,14 @@ async function main() {
     const painted = await evaluate("(() => { const c = document.getElementById('mobilePetCanvas'); const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; for (let i = 3; i < d.length; i += 4) if (d[i] > 0) return true; return false; })()");
     ok("mobile: pet canvas has visible pixels", painted === true, painted);
 
-    // size stability: the character's opaque region is scaled per frame, so EVERY frame
-    // (playing or paused) must fill the constrained dimension about equally —
-    // guards against the "pet enlarges while playing" regression.
+    // layout stability: scale+anchor are FIXED per action (median bbox), so the drawn
+    // body neither enlarges (fill ~1 on typical frames) nor jitters (bbox center moves
+    // only with genuine pose motion, a few % per sample; per-frame recentering gave
+    // median deltas an order of magnitude larger).
     const fill = await evaluate(`new Promise((resolve) => {
       const c = document.getElementById('mobilePetCanvas');
-      let best = null, worst = null;
+      let best = null, worst = null, prev = null;
+      const dc = [];
       const sample = () => {
         const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
         let minX = 1e9, minY = 1e9, maxX = -1, maxY = -1;
@@ -186,18 +188,27 @@ async function main() {
         }
         if (maxX >= minX) {
           const bw = maxX - minX + 1, bh = maxY - minY + 1;
+          const cx = (minX + maxX) / 2 / c.width, cy = (minY + maxY) / 2 / c.height;
           const f = Math.max(bw / c.width, bh / c.height);
           const rec = { bw, bh, fill: +f.toFixed(3) };
           if (!best || f > best.fill) best = rec;
           if (!worst || f < worst.fill) worst = rec;
+          if (prev) dc.push([Math.abs(cx - prev[0]), Math.abs(cy - prev[1])]);
+          prev = [cx, cy];
         }
       };
       const t0 = performance.now();
-      const iv = setInterval(() => { sample(); if (performance.now() - t0 > 1600) { clearInterval(iv); resolve({ best, worst }); } }, 80);
+      const iv = setInterval(() => { sample(); if (performance.now() - t0 > 1600) { clearInterval(iv); resolve({ best, worst, dc }); } }, 80);
     })`, true);
-    ok("mobile: pet body fills constrained dimension every frame",
-      fill && fill.best && fill.worst && fill.best.fill >= 0.9 && fill.worst.fill >= 0.85,
-      JSON.stringify(fill));
+    const medDelta = (i) => {
+      const v = fill.dc.map((d) => d[i]).sort((a, b) => a - b);
+      return v.length ? v[v.length >> 1] : 1;
+    };
+    const dx = medDelta(0), dy = medDelta(1);
+    ok("mobile: fixed layout — body fills, no jitter",
+      fill && fill.best && fill.worst && fill.best.fill >= 0.9 && fill.worst.fill >= 0.7
+        && dx <= 0.05 && dy <= 0.05,
+      JSON.stringify({ best: fill && fill.best, worst: fill && fill.worst, medDx: +dx.toFixed(4), medDy: +dy.toFixed(4) }));
 
     // locate one opaque and one transparent sprite pixel (fresh each call, element may have moved)
     const findPoints = () => evaluate(`(() => {

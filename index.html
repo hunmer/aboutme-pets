@@ -79,7 +79,7 @@
   .mobile-pet {
     position: fixed; z-index: 60;
     right: 14px; bottom: 18px;
-    width: 300px; height: 400px;
+    width: 150px; height: 260px;
     display: none;
     pointer-events: none;
     user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
@@ -290,6 +290,8 @@
     lastTs: 0,
     raf: 0,
     loadToken: 0,
+    audioToken: 0,
+    audioPending: false,
     selectMode: false,
     selected: new Set(),
     busy: false,
@@ -419,6 +421,48 @@
     else renderCategories();
   }
 
+  // 起播音频；起播/加载失败时退回无声动画（按时间推进）。
+  // Chromium 实测注意事项：
+  // 1) 渐进加载的音频（服务器不支持 Range，如 python http.server）暂停后 seek 会被改成 0 ——
+  //    改为 fetch 成 blob 再用 objectURL 播放，完全可 seek，也不依赖服务器能力；
+  // 2) 不 append 到文档的 Audio 元素同样有暂停 seek 异常 —— append（hidden）；
+  // 3) a.loop=true 也会让暂停 seek 失效 —— 改听 ended 手动续播（play() 在 ended 后自动回开头）。
+  function startActionAudio(action) {
+    stopAudio();
+    if (!action.audio) return;
+    const token = ++state.audioToken;
+    state.audioPending = true; // blob 就绪前冻结动画，保证声画同时从 0 开始
+    fetch(assetUrl(action.audio))
+      .then((res) => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.blob(); })
+      .then((blob) => {
+        if (token !== state.audioToken) return; // 期间已切换动作/宠物
+        const a = new Audio(URL.createObjectURL(blob));
+        a.hidden = true;
+        document.body.appendChild(a);
+        a.volume = 0.8;
+        a.addEventListener("error", () => { if (state.audio === a) state.audio = null; });
+        a.addEventListener("ended", () => {
+          if (state.audio === a && state.playing) a.play().catch(() => {});
+        });
+        state.audio = a;
+        state.audioPending = false;
+        a.play().catch(() => { if (state.audio === a) state.audio = null; });
+      })
+      .catch(() => {
+        if (token === state.audioToken) state.audioPending = false; // 拉取失败：无声播放
+      });
+  }
+
+  // 把音频拨到指定帧对应的时间（拖动进度条 / 逐帧步进时保持声画对齐）
+  function seekAudioToFrame(frame) {
+    const a = state.audio;
+    if (!a) return;
+    const t = frame / (state.action.fps || 12);
+    try {
+      a.currentTime = isFinite(a.duration) && a.duration > 0 ? Math.min(t, a.duration - 0.01) : t;
+    } catch (_) { /* 元数据未加载前 seek 可能抛错，忽略 */ }
+  }
+
   function selectAction(action) {
     state.action = action;
     state.frame = 0;
@@ -439,17 +483,13 @@
       chip.setAttribute("aria-current", String(chip.textContent === action.id));
     });
 
-    stopAudio();
-    if (action.audio) {
-      state.audio = new Audio(assetUrl(action.audio));
-      state.audio.volume = 0.8;
-      state.audio.play().catch(() => {});
-    }
+    stopAudio(); // 先停旧声音；新音频等图片就绪后在 onload 里与动画同时起播
 
     const token = ++state.loadToken;
     showLoading(true);
     const img = new Image();
     img.decoding = "async";
+    img.crossOrigin = "anonymous"; // raw.githubusercontent 素材：允许像素级读取
     img.onload = () => {
       if (token !== state.loadToken) return;
       state.img = img;
@@ -457,13 +497,13 @@
       resizeCanvas();
       draw();
       startLoop();
+      startActionAudio(action); // 图片就绪后再起播，动画与声音从 0 同时开始
     };
     img.onerror = () => {
       if (token !== state.loadToken) return;
       showLoading(false);
       showError(`加载失败：${action.webp}`);
     };
-    img.crossOrigin = "anonymous";
     img.src = assetUrl(action.webp);
     renderCategories();
     requestAnimationFrame(() => {
@@ -480,16 +520,25 @@
       state.raf = requestAnimationFrame(tick);
       if (!state.img) return;
       if (state.playing) {
-        if (state.lastTs) {
+        const audio = state.audio;
+        if (audio && !audio.paused) {
+          // 音频作为时钟：帧号取自音频播放位置，动画与声音一起缓冲、一起循环，不会漂移
           const fps = state.action.fps || 12;
-          const advance = Math.floor(((ts - state.lastTs) / 1000) * fps);
-          if (advance > 0) {
-            state.frame = (state.frame + advance) % state.action.frameCount;
-            state.lastTs += (advance / fps) * 1000;
+          state.frame = Math.floor(audio.currentTime * fps) % state.action.frameCount;
+        } else if (!audio && !state.audioPending) {
+          // 无声动作：按时间推进
+          if (state.lastTs) {
+            const fps = state.action.fps || 12;
+            const advance = Math.floor(((ts - state.lastTs) / 1000) * fps);
+            if (advance > 0) {
+              state.frame = (state.frame + advance) % state.action.frameCount;
+              state.lastTs += (advance / fps) * 1000;
+            }
+          } else {
+            state.lastTs = ts;
           }
-        } else {
-          state.lastTs = ts;
         }
+        // 音频存在但尚未起播（blob 加载/缓冲中）：冻结在当前帧，避免动画跑到声音前面
       } else {
         state.lastTs = 0;
       }
@@ -543,6 +592,55 @@
   const mpetCtx = mpetView.getContext("2d");
   const mobileMQ = window.matchMedia("(max-width: 560px)");
   let mpetDpr = 1;
+  const HIT_ALPHA = 25; // 不透明像素阈值：命中测试与包围盒共用
+
+  // 一次性计算一个动作「每一帧」的不透明包围盒（帧内坐标，步长2采样），并集留作空帧回退。
+  // 悬浮精灵按「当前帧的角色本体」适配画布：每一帧本体都恰好填满受限维度并居中，
+  // 播放/暂停/逐帧时角色显示大小恒定，不会出现「播放到伸展帧时放大」的现象。
+  function frameBoxAt(action, img, frame) {
+    if (!action._frameBoxes) {
+      const canvas = document.createElement("canvas");
+      canvas.width = action.frameWidth;
+      canvas.height = action.frameHeight;
+      const cc = canvas.getContext("2d", { willReadFrequently: true });
+      const columns = action.columns || 8;
+      const boxes = new Array(action.frameCount).fill(null);
+      let minX = 1 / 0, minY = 1 / 0, maxX = -1, maxY = -1;
+      for (let f = 0; f < action.frameCount; f++) {
+        cc.clearRect(0, 0, canvas.width, canvas.height);
+        cc.drawImage(
+          img,
+          (f % columns) * action.frameWidth, Math.floor(f / columns) * action.frameHeight,
+          action.frameWidth, action.frameHeight, 0, 0, canvas.width, canvas.height
+        );
+        const data = cc.getImageData(0, 0, canvas.width, canvas.height).data;
+        let fxMin = 1 / 0, fyMin = 1 / 0, fxMax = -1, fyMax = -1;
+        for (let y = 0; y < canvas.height; y += 2) {
+          const row = y * canvas.width;
+          for (let x = 0; x < canvas.width; x += 2) {
+            if (data[(row + x) * 4 + 3] > HIT_ALPHA) {
+              if (x < fxMin) fxMin = x;
+              if (x > fxMax) fxMax = x;
+              if (y < fyMin) fyMin = y;
+              if (y > fyMax) fyMax = y;
+            }
+          }
+        }
+        if (fxMax >= fxMin) {
+          boxes[f] = { x: fxMin, y: fyMin, w: fxMax - fxMin + 1, h: fyMax - fyMin + 1 };
+          if (fxMin < minX) minX = fxMin;
+          if (fyMin < minY) minY = fyMin;
+          if (fxMax > maxX) maxX = fxMax;
+          if (fyMax > maxY) maxY = fyMax;
+        }
+      }
+      action._frameBoxes = boxes;
+      action._bbox = maxX < minX // 全透明动作：整帧兜底
+        ? { x: 0, y: 0, w: action.frameWidth, h: action.frameHeight }
+        : { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+    }
+    return action._frameBoxes[frame] || action._bbox;
+  }
 
   function resizeMobilePet() {
     mpetDpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -569,9 +667,12 @@
     const h = mpetView.height / mpetDpr;
     if (!w || !h) return;
     mpetCtx.clearRect(0, 0, w, h);
-    const scale = Math.min(w / action.frameWidth, h / action.frameHeight);
-    const dw = action.frameWidth * scale;
-    const dh = action.frameHeight * scale;
+    // 按当前帧的角色本体（该帧不透明包围盒）缩放居中：每帧本体都恰好填满 150×260 的受限维度，
+    // 角色显示大小在任意帧/任意播放状态下恒定
+    const bb = frameBoxAt(action, img, state.frame);
+    const scale = Math.min(w / bb.w, h / bb.h);
+    const dx = (w - bb.w * scale) / 2 - bb.x * scale;
+    const dy = (h - bb.h * scale) / 2 - bb.y * scale;
     const columns = action.columns || 8;
     const col = state.frame % columns;
     const row = Math.floor(state.frame / columns);
@@ -579,7 +680,7 @@
     mpetCtx.drawImage(
       img,
       col * action.frameWidth, row * action.frameHeight, action.frameWidth, action.frameHeight,
-      (w - dw) / 2, (h - dh) / 2, dw, dh
+      dx, dy, action.frameWidth * scale, action.frameHeight * scale
     );
   }
 
@@ -590,18 +691,12 @@
     state.lastTs = 0;
     $("playBtn").textContent = "暂停";
     $("scrub").value = 0;
-    stopAudio();
-    if (state.action.audio) {
-      state.audio = new Audio(assetUrl(state.action.audio));
-      state.audio.volume = 0.8;
-      state.audio.play().catch(() => {});
-    }
+    startActionAudio(state.action);
     draw();
     drawMobilePet();
   }
 
   // 交互：按精灵不透明像素命中；透明区域完全穿透（元素本身 pointer-events:none）
-  const HIT_ALPHA = 25;
   let mpetDrag = null;
   let mpetTapGuard = 0;
 
@@ -700,11 +795,18 @@
     state.playing = !state.playing;
     $("playBtn").textContent = state.playing ? "暂停" : "播放";
     state.lastTs = 0;
+    const a = state.audio;
+    if (a) {
+      // 暂停/恢复时音频与动画一起停/走，位置天然对齐
+      if (state.playing) a.play().catch(() => {});
+      else a.pause();
+    }
   }
 
   function stepFrame(delta) {
     if (!state.action) return;
     state.frame = (state.frame + delta + state.action.frameCount) % state.action.frameCount;
+    seekAudioToFrame(state.frame);
     draw();
   }
 
@@ -717,7 +819,16 @@
 
   function showLoading(on) { loading.classList.toggle("hidden", !on); if (on) errorBox.classList.add("hidden"); }
   function showError(message) { errorBox.textContent = message; errorBox.classList.remove("hidden"); }
-  function stopAudio() { if (state.audio) { state.audio.pause(); state.audio = null; } }
+  function stopAudio() {
+    state.audioPending = false;
+    if (state.audio) {
+      state.audio.pause();
+      const url = state.audio.currentSrc || state.audio.src || "";
+      if (url.startsWith("blob:")) URL.revokeObjectURL(url);
+      state.audio.remove(); // 起播时 append 进了文档，停播时一并移除
+      state.audio = null;
+    }
+  }
 
   function escapeHtml(text) {
     return String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -767,10 +878,10 @@
   function loadImg(src) {
     return new Promise((resolve, reject) => {
       const img = new Image();
-      img.crossOrigin = "anonymous";
       img.onload = () => resolve(img);
+      img.crossOrigin = "anonymous";
       img.onerror = () => reject(new Error(`加载失败：${src}`));
-      img.src = src;
+      img.src = assetUrl(src);
     });
   }
 
@@ -813,7 +924,7 @@
         const { action } = findAction(keys[i]);
         if (!action) continue;
         setStatus(`转换 WebM ${i + 1}/${keys.length}：${action.id}`);
-        const img = await loadImg(assetUrl(action.webp));
+        const img = await loadImg(action.webp);
         const canvas = document.createElement("canvas");
         canvas.width = action.frameWidth;
         canvas.height = action.frameHeight;
@@ -875,7 +986,19 @@
   $("scrub").addEventListener("input", (event) => {
     if (!state.action) return;
     state.frame = Number(event.target.value);
+    seekAudioToFrame(state.frame); // 拖动进度条时音频跟随，声画不脱节
     draw();
+  });
+  // 调试/测试钩子：读取当前帧与音频位置，用于验证声画同步
+  window.__petDebug = () => ({
+    frame: state.frame,
+    frameCount: state.action ? state.action.frameCount : 0,
+    fps: state.action ? state.action.fps || 12 : 12,
+    t: state.audio ? state.audio.currentTime : null,
+    playing: state.playing,
+    audio: state.audio
+      ? { paused: state.audio.paused, seeking: state.audio.seeking, readyState: state.audio.readyState, duration: state.audio.duration, loop: state.audio.loop }
+      : null,
   });
   $("search").addEventListener("input", renderCategories);
 

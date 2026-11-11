@@ -24,6 +24,7 @@ async function main() {
   const userDataDir = mkdtempSync(path.join(tmpdir(), "dsh-pets-verify-"));
   const chrome = spawn(CHROME, [
     "--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
+    "--autoplay-policy=no-user-gesture-required",
     `--remote-debugging-port=${PORT}`, `--user-data-dir=${userDataDir}`, "about:blank",
   ], { stdio: "ignore" });
 
@@ -89,6 +90,67 @@ async function main() {
     const mpetD = await evaluate("getComputedStyle(document.getElementById('mobilePet')).display");
     ok("desktop: floating pet hidden", mpetD === "none", mpetD);
 
+    // ---- audio/animation sync (audio-driven clock) ----
+    const audioAction = await fetch(URL.replace(/index\.html$/, "preview.json"))
+      .then((r) => r.json())
+      .then((j) => {
+        for (let p = 0; p < j.pets.length; p++) {
+          for (const cat of j.pets[p].categories) {
+            const a = cat.actions.find((x) => x.audio);
+            if (a) return { petIndex: p, actionId: a.id };
+          }
+        }
+        return null;
+      });
+    if (audioAction) {
+      await evaluate(`document.querySelectorAll('#petList .pet')[${audioAction.petIndex}].click()`);
+      await sleep(700);
+      await evaluate(`(() => { const chip = [...document.querySelectorAll('.chip')].find((c) => c.textContent === ${JSON.stringify(audioAction.actionId)}); if (chip) chip.click(); })()`);
+      let started = false;
+      for (let i = 0; i < 40 && !started; i++) {
+        await sleep(150);
+        const dbg = await evaluate("window.__petDebug && window.__petDebug()");
+        started = dbg && dbg.playing && dbg.t !== null && dbg.t > 0;
+      }
+      ok("sync: audio action started playing with sound", started, JSON.stringify(audioAction));
+
+      // while playing, frame must always equal floor(t*fps) % frameCount (within 1 frame)
+      let maxSkew = 0, badSample = null;
+      for (let i = 0; i < 8; i++) {
+        const dbg = await evaluate("window.__petDebug()");
+        if (dbg && dbg.t !== null) {
+          const expected = Math.floor(dbg.t * dbg.fps) % dbg.frameCount;
+          const skew = Math.min(Math.abs(dbg.frame - expected), Math.abs(dbg.frame - expected + dbg.frameCount), Math.abs(dbg.frame - expected - dbg.frameCount));
+          if (skew > maxSkew) { maxSkew = skew; badSample = JSON.stringify(dbg); }
+        }
+        await sleep(220);
+      }
+      ok("sync: frame follows audio clock while playing", maxSkew <= 1, `maxSkew=${maxSkew} worst=${badSample}`);
+
+      // pause must freeze BOTH animation and audio
+      await evaluate("document.getElementById('playBtn').click()");
+      await sleep(150);
+      const p1 = await evaluate("window.__petDebug()");
+      await sleep(450);
+      const p2 = await evaluate("window.__petDebug()");
+      ok("sync: pause freezes audio+animation together",
+        p1 && p2 && p1.playing === false && Math.abs(p2.t - p1.t) < 0.02 && p2.frame === p1.frame,
+        `p1=${JSON.stringify(p1)} p2=${JSON.stringify(p2)}`);
+
+      // scrubbing must seek audio to frame/fps
+      await evaluate(`(() => { const s = document.getElementById('scrub'); s.value = 5; s.dispatchEvent(new Event('input', { bubbles: true })); })()`);
+      await sleep(250);
+      const p3 = await evaluate("window.__petDebug()");
+      ok("sync: scrub seeks audio and frame together",
+        p3 && p3.frame === 5 && p3.t !== null && Math.abs(p3.t - 5 / p3.fps) < 0.15,
+        JSON.stringify(p3));
+
+      await evaluate("document.getElementById('playBtn').click()"); // resume for later checks
+      await sleep(300);
+    } else {
+      ok("sync: audio action started playing with sound", false, "no action with audio found in preview.json");
+    }
+
     // ---- mobile 390x844 ----
     await setViewport(390, 844, true);
     await sleep(600);
@@ -99,13 +161,43 @@ async function main() {
       (await evaluate("getComputedStyle(document.getElementById('mobilePet')).display")) === "block");
 
     const rect = await evaluate("(() => { const r = document.getElementById('mobilePet').getBoundingClientRect(); return { w: Math.round(r.width), h: Math.round(r.height), x: Math.round(r.left), y: Math.round(r.top) }; })()");
-    ok("mobile: floating pet size 300x400", rect && rect.w === 300 && rect.h === 400, JSON.stringify(rect));
+    ok("mobile: floating pet size 150x260", rect && rect.w === 150 && rect.h === 260, JSON.stringify(rect));
 
     const canvasSize = await evaluate("document.getElementById('mobilePetCanvas').width + 'x' + document.getElementById('mobilePetCanvas').height");
-    ok("mobile: pet canvas backing size matches", canvasSize === "300x400", canvasSize);
+    ok("mobile: pet canvas backing size matches", canvasSize === "150x260", canvasSize);
 
     const painted = await evaluate("(() => { const c = document.getElementById('mobilePetCanvas'); const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; for (let i = 3; i < d.length; i += 4) if (d[i] > 0) return true; return false; })()");
     ok("mobile: pet canvas has visible pixels", painted === true, painted);
+
+    // size stability: the character's opaque region is scaled per frame, so EVERY frame
+    // (playing or paused) must fill the constrained dimension about equally —
+    // guards against the "pet enlarges while playing" regression.
+    const fill = await evaluate(`new Promise((resolve) => {
+      const c = document.getElementById('mobilePetCanvas');
+      let best = null, worst = null;
+      const sample = () => {
+        const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+        let minX = 1e9, minY = 1e9, maxX = -1, maxY = -1;
+        for (let y = 0; y < c.height; y += 2) for (let x = 0; x < c.width; x += 2) {
+          if (d[(y * c.width + x) * 4 + 3] > 25) {
+            if (x < minX) minX = x; if (x > maxX) maxX = x;
+            if (y < minY) minY = y; if (y > maxY) maxY = y;
+          }
+        }
+        if (maxX >= minX) {
+          const bw = maxX - minX + 1, bh = maxY - minY + 1;
+          const f = Math.max(bw / c.width, bh / c.height);
+          const rec = { bw, bh, fill: +f.toFixed(3) };
+          if (!best || f > best.fill) best = rec;
+          if (!worst || f < worst.fill) worst = rec;
+        }
+      };
+      const t0 = performance.now();
+      const iv = setInterval(() => { sample(); if (performance.now() - t0 > 1600) { clearInterval(iv); resolve({ best, worst }); } }, 80);
+    })`, true);
+    ok("mobile: pet body fills constrained dimension every frame",
+      fill && fill.best && fill.worst && fill.best.fill >= 0.9 && fill.worst.fill >= 0.85,
+      JSON.stringify(fill));
 
     // locate one opaque and one transparent sprite pixel (fresh each call, element may have moved)
     const findPoints = () => evaluate(`(() => {

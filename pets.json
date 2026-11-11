@@ -47,7 +47,7 @@
       "description": "2026-11 Qwen 生成批次，106 个透明 WebP 精灵图动作（待机、情绪、玩耍、才艺、吃喝、时节、工作状态、余额、碎碎念等）。",
       "cover": "pets/qwen/avatar.webp",
       "manifest": "pets/qwen/manifest.json",
-      "actions": "pets/qwen/manifest.json"
+      "actions": "pets/qwen/actions.json"
     },
     {
       "id": "glm-pet",
@@ -55,7 +55,15 @@
       "description": "2026-11 GLM 生成批次（蓝狐耳娘版），97 个透明 WebP 精灵图动作，含 AAC 音频（待机、点击回应、玩耍、才艺、吃喝、时节、礼仪、余额、工作状态等）。",
       "cover": "pets/glm/avatar.webp",
       "manifest": "pets/glm/manifest.json",
-      "actions": "pets/glm/manifest.json"
+      "actions": "pets/glm/actions.json"
+    },
+    {
+      "id": "grok-pet",
+      "name": "Grok 动作包",
+      "description": "2026-11 Grok 生成批次（金发小魔女版），106 个透明 WebP 精灵图动作，含 AAC 音频（待机、点击回应、玩耍、才艺、吃喝、时节、余额、碎碎念、工作状态等）。",
+      "cover": "pets/grok/avatar.webp",
+      "manifest": "pets/grok/manifest.json",
+      "actions": "pets/grok/actions.json"
     }
   ]
 }

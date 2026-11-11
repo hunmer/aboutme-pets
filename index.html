@@ -594,18 +594,20 @@
   let mpetDpr = 1;
   const HIT_ALPHA = 25; // 不透明像素阈值：命中测试与包围盒共用
 
-  // 一次性计算一个动作「每一帧」的不透明包围盒（帧内坐标，步长2采样），并集留作空帧回退。
-  // 悬浮精灵按「当前帧的角色本体」适配画布：每一帧本体都恰好填满受限维度并居中，
-  // 播放/暂停/逐帧时角色显示大小恒定，不会出现「播放到伸展帧时放大」的现象。
-  function frameBoxAt(action, img, frame) {
-    if (!action._frameBoxes) {
+  // 一次性计算一个动作「每一帧」的不透明包围盒（帧内坐标，步长2采样），
+  // 再取各边坐标的中位数得到该动作的基准框（典型姿势的本体区域）。
+  // 悬浮精灵的缩放与锚点对基准框一次算定、所有帧共用：
+  //  - 大小恒定：典型姿势恰好填满 150×260 的受限维度，不会播放时放大/缩小
+  //  - 位置恒定：不随单帧姿势逐帧重定位，播放零抖动
+  //  - 极端伸展帧会在画布边缘轻微溢出裁剪（可接受，以此换取上面两点）
+  function actionLayout(action, img) {
+    if (!action._layoutBox) {
       const canvas = document.createElement("canvas");
       canvas.width = action.frameWidth;
       canvas.height = action.frameHeight;
       const cc = canvas.getContext("2d", { willReadFrequently: true });
       const columns = action.columns || 8;
-      const boxes = new Array(action.frameCount).fill(null);
-      let minX = 1 / 0, minY = 1 / 0, maxX = -1, maxY = -1;
+      const lefts = [], tops = [], rights = [], bottoms = [];
       for (let f = 0; f < action.frameCount; f++) {
         cc.clearRect(0, 0, canvas.width, canvas.height);
         cc.drawImage(
@@ -627,19 +629,23 @@
           }
         }
         if (fxMax >= fxMin) {
-          boxes[f] = { x: fxMin, y: fyMin, w: fxMax - fxMin + 1, h: fyMax - fyMin + 1 };
-          if (fxMin < minX) minX = fxMin;
-          if (fyMin < minY) minY = fyMin;
-          if (fxMax > maxX) maxX = fxMax;
-          if (fyMax > maxY) maxY = fyMax;
+          lefts.push(fxMin); tops.push(fyMin); rights.push(fxMax + 1); bottoms.push(fyMax + 1);
         }
       }
-      action._frameBoxes = boxes;
-      action._bbox = maxX < minX // 全透明动作：整帧兜底
-        ? { x: 0, y: 0, w: action.frameWidth, h: action.frameHeight }
-        : { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+      const med = (a) => {
+        a.sort((p, q) => p - q);
+        const m = a.length >> 1;
+        return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+      };
+      const L = lefts.length ? med(lefts) : 0;
+      const T = lefts.length ? med(tops) : 0;
+      const R = lefts.length ? med(rights) : action.frameWidth;
+      const B = lefts.length ? med(bottoms) : action.frameHeight;
+      action._layoutBox = R > L && B > T
+        ? { x: L, y: T, w: R - L, h: B - T }
+        : { x: 0, y: 0, w: action.frameWidth, h: action.frameHeight }; // 全透明动作：整帧兜底
     }
-    return action._frameBoxes[frame] || action._bbox;
+    return action._layoutBox;
   }
 
   function resizeMobilePet() {
@@ -667,9 +673,9 @@
     const h = mpetView.height / mpetDpr;
     if (!w || !h) return;
     mpetCtx.clearRect(0, 0, w, h);
-    // 按当前帧的角色本体（该帧不透明包围盒）缩放居中：每帧本体都恰好填满 150×260 的受限维度，
-    // 角色显示大小在任意帧/任意播放状态下恒定
-    const bb = frameBoxAt(action, img, state.frame);
+    // 按该动作的基准框（全帧中位包围盒）缩放居中：缩放与锚点对所有帧恒定 ——
+    // 大小恒定（典型姿势填满 150×260）且位置恒定（播放零抖动）
+    const bb = actionLayout(action, img);
     const scale = Math.min(w / bb.w, h / bb.h);
     const dx = (w - bb.w * scale) / 2 - bb.x * scale;
     const dy = (h - bb.h * scale) / 2 - bb.y * scale;

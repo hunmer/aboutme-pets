@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "kimi-pet",
+  "name": "Kimi 动作包",
+  "canvasWidth": 640,
+  "canvasHeight": 360,
+  "metadata": {
+    "resourceFormat": "Per-action lossy WebP spritesheets with alpha; optional AAC m4a audio track",
+    "sourceVideos": "*.webm enumerated from --source-dir; filename without extension is the animation id",
+    "conversion": {
+      "frameWidth": 640,
+      "frameHeight": 360,
+      "fps": 12,
+      "columns": 8,
+      "rows": "ceil(actual fps-filtered frame count / columns)",
+      "frameCountMethod": "FFmpeg fps filter -> null output -> final progress frame count",
+      "imageFormat": "webp",
+      "lossless": false,
+      "maxImageBytes": 2097152,
+      "qualityCeiling": 100,
+      "qualitySearch": "Per-image RGB integer binary search; alpha quality 50/25/10/1 as needed; encoded bytes strictly below maxImageBytes",
+      "encoder": "cwebp -m 4 -mt",
+      "alphaHandling": "Source alpha preserved via RGBA tiles; alpha-free sources encode fully opaque and libwebp omits the alpha plane",
+      "audio": "First audio stream extracted to audio/<id>.m4a (AAC; stream copy when the source is already AAC, otherwise 192k re-encode); a silent source retains an existing m4a from an earlier export of the same performance (json AudioNote); no manifest audio reference only when neither exists",
+      "script": "convert_video_pet_spritesheet.py"
+    }
+  },
+  "idleAnimationId": "待机呼吸休闲",
+  "hover": {
+    "animationIds": [],
+    "strategy": "random"
+  },
+  "click": {
+    "animationIds": [],
+    "strategy": "random"
+  },
+  "movement": {
+    "leftAnimationId": "原地左转奔跑",
+    "rightAnimationId": "原地左转奔跑",
+    "dragAnimationId": "被鼠标拖拽悬空反馈",
+    "speed": 40,
+    "minIdleSeconds": 10,
+    "maxIdleSeconds": 10
+  },
+  "regions": [],
+  "animations": [
+    {
+      "id": "原地左转奔跑",
+      "name": "原地左转奔跑",
+      "category": "移动",
+      "sources": {
+        "webp": "spritesheet/原地左转奔跑.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      },
+      "audio": "audio/原地左转奔跑.m4a"
+    },
+    {
+      "id": "待机呼吸休闲",
+      "name": "待机呼吸休闲",
+      "category": "待机",
+      "sources": {
+        "webp": "spritesheet/待机呼吸休闲.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      },
+      "audio": "audio/待机呼吸休闲.m4a"
+    },
+    {
+      "id": "被鼠标拖拽悬空反馈",
+      "name": "被鼠标拖拽悬空反馈",
+      "category": "拖拽",
+      "sources": {
+        "webp": "spritesheet/被鼠标拖拽悬空反馈.webp"
+      },
+      "spritesheet": {
+        "frameWidth": 640,
+        "frameHeight": 360,
+        "columns": 8,
+        "rows": 15,
+        "frameCount": 120,
+        "fps": 12
+      },
+      "audio": "audio/被鼠标拖拽悬空反馈.m4a"
+    }
+  ]
+}

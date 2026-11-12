@@ -64,6 +64,14 @@
       "cover": "pets/grok/avatar.webp",
       "manifest": "pets/grok/manifest.json",
       "actions": "pets/grok/actions.json"
+    },
+    {
+      "id": "kimi-pet",
+      "name": "Kimi 动作包",
+      "description": "2026-11 Kimi 生成批次（星芒小女仆版），105 个透明 WebP 精灵图动作，全部含 AAC 音频（待机、点击回应、玩耍、才艺、吃喝、时节、余额、碎碎念、工作状态等）。",
+      "cover": "pets/kimi/avatar.webp",
+      "manifest": "pets/kimi/manifest.json",
+      "actions": "pets/kimi/actions.json"
     }
   ]
 }

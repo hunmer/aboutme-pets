@@ -653,6 +653,8 @@
     const rect = mobilePet.getBoundingClientRect();
     mpetView.width = Math.max(1, Math.round(rect.width * mpetDpr));
     mpetView.height = Math.max(1, Math.round(rect.height * mpetDpr));
+    // 画布分辨率使用设备像素，绘制坐标保持 CSS 像素，与容器及拖拽边界一致。
+    mpetCtx.setTransform(mpetDpr, 0, 0, mpetDpr, 0, 0);
   }
 
   function clampMobilePet() {

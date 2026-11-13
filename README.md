@@ -25,7 +25,8 @@ Aboutme 宠物商店的目录与可下载动画资源。
 | Kimi 动作包（星芒小女仆版） | `pets/kimi` | 105 | 作者生成（含 105 条 AAC 音轨） |
 
 9 个角色包合计 **1040** 个动作。除 `pets/dsh`（素材来自上游 dsh-pet 仓库）外，
-其余角色包的全部素材均为本仓库作者生成。
+其余角色包的动作素材由本仓库作者生成，基础立绘形象来自
+[lokicorvus/crosspet](https://github.com/lokicorvus/crosspet)。
 
 ## 商店地址
 
@@ -40,6 +41,11 @@ pets/dsh 素材来自 [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh
 上游两份 LICENSE 均为代码 MIT，不覆盖素材限制。转换脚本为本仓库根目录的
 `convert_video_pet_spritesheet.ps1`，资源规格见 `about-me` 仓库
 `assets/live2d/video/dsh_pet/README.md`。
+
+其余角色包的基础立绘形象来自 [lokicorvus/crosspet](https://github.com/lokicorvus/crosspet)
+（跨 AI 桌宠项目），动作与音轨由本仓库基于这些形象生成。crosspet 的角色立绘按
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 授权：
+署名、非商业性使用、相同方式共享。
 
 ## 重新导出精灵图
 

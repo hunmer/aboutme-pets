@@ -103,3 +103,15 @@ python3 TransparentVideoMaker.py frames -i ./frames -o out.webm
 工具原本是独立仓库，现已并入本仓库并去掉其 `.git`，且移除了 Windows 打包/启动器
 （`start-tvm.bat`）与相关专用代码，只保留 macOS/Linux 路径；详细说明见
 `Transparent-Video-Maker/README.md`（MIT，第三方 ffmpeg GPL v3 / rembg MIT）。
+
+
+## 下游适配
+
+- [dsh-pet](https://github.com/PC2005-cloud/dsh-pet)（DeepSeek Harness 桌宠插件）可用 `scripts/make_petpack.py` 把本仓库角色包转换为其 pet pack 格式，见 dsh-pet [CONFIG.md「方式四：额外宠物（pet pack）」](https://github.com/PC2005-cloud/dsh-pet/blob/main/CONFIG.md)：
+
+```bash
+pip install Pillow
+python scripts/make_petpack.py --pack grok --dst "$DSH_HOME/dsh-pet/pet"
+```
+
+  转换产出为 640×360 透明 VP9 webm，按动作分类挂进 dsh-pet 动画池（待机 / 拖拽 / 点击 / 移动 / 余额档 / 碎碎念 / 工作状态 / 睡觉三段 / 对话表演）。素材从本仓库现取现转，**不改变本仓库 CC BY-NC-SA 4.0 授权：禁止商用、公开使用须署名本仓库**。
